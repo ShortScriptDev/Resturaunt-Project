@@ -1,3 +1,5 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
+
 .root{
    --color-1: #7c6a0a;
    --color-2: #4e5166;
@@ -154,9 +156,8 @@ header{
 #ad2 img{
     width:150px;
     position: absolute;
-    z-index: 1;
     margin-top: -173px;
-    margin-left: 91px;
+    margin-left: 87px;
 }
 #ad2main{
     width:100%;
@@ -171,7 +172,6 @@ header{
 }
 #ad2main h2{
     position:relative;
-    z-index:1;
     color:#36454f;
 }
 #ad2main hr{
@@ -231,6 +231,7 @@ li{
     margin-bottom: 20px;
     margin-left:70px;
     margin-right:70px;
+    border-color:#fc814a;
 }
 
 @keyframes sec2imgs{
@@ -249,4 +250,155 @@ li{
     100%{
         transform: rotate3d(75, 75, 1, 0deg);
     }
+}
+.menu-deals{
+    padding-top:5px;
+    width:100%;
+    height:100vh;
+    background-attachment: fixed;
+    background-image: url('Tropicalbg.png');
+    background-size: contain;
+    background-color: #36454f;
+}
+.deals{
+    width:60%;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: .6fr 1fr;
+    margin:auto;
+}
+.meal img{
+    width:240px;
+    display:flex;
+    margin:auto;
+    margin-bottom:-8%;
+}
+.biggerplate img{
+    margin-bottom:-13%;
+}
+.meal{
+    text-align: center;
+}
+.meal-deal-name{
+    background-color:#36454f;
+    border: 1px solid rgb(235, 204, 164);
+    width:298px;
+    height: 70px;
+    border-radius:30px 30px 0px 0px;
+    margin:auto;
+    padding-top:15%;
+    color:beige;
+}
+.meal-deal-price{
+    background-color:#fc814a;
+    width:300px;
+    height: 40px;
+    border-radius:5px;
+    margin:auto;
+    margin-top:-5%;
+    color:black;
+    font-size: 30px;
+}
+.meal1{
+    margin-top:14px;
+}
+
+.menu{
+    width:100%;
+    height:fit-content;
+    background-color: black;
+    padding-bottom:30px;
+}
+
+.menuheader img{
+    width:100%;
+    height:350px;
+}
+.headertext{
+    padding-top:30px;
+    position:absolute;
+    background-color: #fc814a;
+    opacity: 80%;
+    border-radius: 0 0 50% 50% / 0 0 100% 100% ;
+    width: 40%;
+    height:15%;
+    margin-left:30%;
+    text-align: center;
+}
+.menuheader h2{
+    position:absolute;
+    margin-left:43%;
+    padding-top:30px;
+    color:white
+}
+.menu-sections{
+    width:90%;
+    padding-left:5%;
+    padding-right:5%;
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap:20px;
+    background-color: black;
+}
+.menuimg{
+    width:70%;
+}
+.menuimages{
+    text-align: center;
+}
+.section-title{
+    font-size:30px;
+    text-align: center;
+    background-color:#fc814a;
+    margin-bottom:10px;
+}
+.menuitems{
+    display:grid;
+    grid-template-columns: 2fr 1fr 0.5fr;
+    grid-template-rows: auto;
+    row-gap:20px;
+    color:white;
+}
+.menuitems button{
+    width:50px;
+    color:white;
+    background-color: #2ba84a;
+    border-color:#fc814a
+}
+.menu-sections hr{
+    width:50px;
+    margin-left:-40px;
+    margin-top:10px;
+    border:3px solid #fc814a;
+    position:absolute;
+}
+footer{
+    width:100%;
+    height:50px;
+    display:grid;
+    grid-template-columns: .5fr 3fr .5fr;
+    position: fixed;
+    bottom: 0pt;   
+    background-color: #36454f;  
+    color:white;
+    align-items: center;
+}
+.social{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align: center;
+}
+.placeorder-bttn{
+    text-align: center;
+}
+.placeorder-bttn button{
+    height:40px;
+    width:150px;
+    background-color: #fc814a;
+    border-radius: 10px;
+    border:none;
+    color:#36454f;
+}
+.contact-info{
+    text-align: center;
 }
