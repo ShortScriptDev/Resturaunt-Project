@@ -353,20 +353,16 @@ li{
 .headertext{
     padding-top:30px;
     position:absolute;
-    background-color: #fc814a;
-    opacity: 80%;
+    background-color: rgba(255, 128, 74, 0.80);
     border-radius: 0 0 50% 50% / 0 0 100% 100% ;
     width: 40%;
     height:15%;
     margin-left:30%;
     text-align: center;
-}
-.menuheader h2{
-    position:absolute;
-    margin-left:43%;
-    padding-top:30px;
     color:white
+
 }
+
 .menu-sections{
     width:90%;
     padding-left:5%;
@@ -392,11 +388,13 @@ li{
 .menuitems{
     display:grid;
     grid-template-columns: 2fr 1fr 0.5fr;
-    grid-template-rows: auto;
-    row-gap:20px;
     color:white;
 }
-
+.menuitemrows{
+    display:grid;
+    grid-template-rows: auto;
+    row-gap:20px;
+}
 .menuitems button{
     width:50px;
     color:white;
@@ -441,7 +439,72 @@ footer{
 .contact-info{
     text-align: center;
 }
-@media (max-width:1650px){
+/*Manage order pop up*/
+.manage-order{
+    width: 35%;
+    height: 70%;
+    background-color: black;
+    z-index:1;
+    color:white;
+    border:2px solid blue;
+    position: fixed;
+    bottom: 37pt;
+    right: 0;
+    overflow: scroll;
+}
+.order-header{
+    display: grid;
+    grid-template-columns: 0.2fr 3fr;
+    margin-bottom: 15px;
+}
+.order-header h2{
+    font-size: 20px;
+}
+.placeorder-items{
+    margin-bottom:10px;
+}
+.order-manage{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+.togetorder{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width:50%;
+    margin:auto;
+    text-align: center;
+    margin-bottom: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border:1px solid white;
+}
+.selected{
+    background-color: #fc814a;
+}
+.pickup{
+    border-top-left-radius: 19px;
+    border-bottom-left-radius: 19px;
+}
+.delivery{
+    border-top-right-radius: 19px;
+    border-bottom-right-radius: 19px;
+}
+.summary{
+    display: grid;
+    grid-template-rows: auto;
+    margin-top:5px;
+}
+.orderdetails{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.order-list{
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+}
+@media (max-width:1350px){
     header{
         height:100px;
     }
@@ -516,13 +579,13 @@ footer{
 @media (max-width:750px){
     
     header{
-        height:50px;
+        height:60px;
     }
     #header{
         height:50px;
     }
     #logo img{
-        width:172px;
+        width:203px;
     }
     #logo{
         height:86px;
@@ -533,6 +596,7 @@ footer{
     #header-nav{
         height: 50px;
         grid-template-columns: 1fr;
+        margin-top:2%;
     }
     #birdimg img{
         width: 275px;
@@ -543,7 +607,7 @@ footer{
     }
     #section-1{
         height:fit-content;
-        background-size: 118%;
+        background-size: 138%;
         padding-top:81px;
         grid-template-columns: 1fr 5fr;
     }
@@ -711,12 +775,10 @@ footer{
         width: 49%;
         height:9%;
         margin-left:26%;
+        text-align: center;
+        font-size:80%;
     }
-    .menuheader h2{
-        margin-left:40%;
-        padding-top:2%;
-        font-size: 100%;
-    }
+    
     .menu-sections{
         grid-template-columns: 1fr;
         gap: 30px;
@@ -760,13 +822,13 @@ footer{
 @media (max-width:525px){
     
 header{
-    height:50px;
+    height:60px;
 }
 #header{
     height:50px;
 }
 #logo img{
-    width:172px;
+    width:203px;
 }
 #logo{
     height:86px;
@@ -777,6 +839,7 @@ header{
 #header-nav{
     height: 50px;
     grid-template-columns: 1fr;
+    margin-top: 5%;
 }
 #birdimg img{
     width: 220px;
@@ -954,12 +1017,9 @@ header{
     width: 49%;
     height:9%;
     margin-left:26%;
+    text-align: center;
 }
-.menuheader h2{
-    margin-left:40%;
-    padding-top:2%;
-    font-size: 100%;
-}
+
 .menu-sections{
     grid-template-columns: 1fr;
     gap: 30px;
