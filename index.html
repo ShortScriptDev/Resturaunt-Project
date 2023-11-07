@@ -129,19 +129,19 @@
               </div>
               <p class="section-title">Appetizer</p>
               <div class="menuitemrows">
-                <div class="menuitems"><p>Banana Walnut</p>
+                <div class="menuitems"><p>Smoked Sausage</p>
                   <p>$3.99</p>
                   <button class="additem">Add</button>
                  </div>
-                 <div class="menuitems"><p>Banana Walnut</p>
+                 <div class="menuitems"><p>Lasagna</p>
                   <p>$3.99</p>
                   <button class="additem">Add</button>
                  </div>
-                 <div class="menuitems"><p>Banana Walnut</p>
+                 <div class="menuitems"><p>Pork belly</p>
                   <p>$3.99</p>
                   <button class="additem">Add</button>
                  </div>
-                 <div class="menuitems"><p>Banana Walnut</p>
+                 <div class="menuitems"><p>Sushi</p>
                   <p>$3.99</p>
                   <button class="additem">Add</button>
                  </div>
@@ -158,7 +158,7 @@
                   <button class="additem">Add</button>
                  </div>
                  <div class="menuitems"><p>Banana Walnut</p>
-                  <p>$3.99</p>
+                  <p>$5.99</p>
                   <button class="additem">Add</button>
                  </div>
                  <div class="menuitems"><p>Banana Walnut</p>
@@ -267,7 +267,48 @@
               </div>
             </div>
           </div>
-
+          <!-- hidden order-->
+          <div class="manage-order">
+            <div class="order-header">
+              <i class="bi-x-circle-fill"></i>
+              <h2>Amazon Rainforest Resturaunt</h2>
+            </div>
+              <div class="placeorder-items">
+              </div>
+            <div class="togetorder">
+              <p class="selected pickup">Pickup</p>
+              <p class="delivery">Delivery</p>
+            </div>
+            <div class="customer-info">
+              <div>
+                <p>Name on order</p>
+                <input id="name" placeholder="John Doe" type="text"/>
+                <button class="addname">Add Name</button>
+              </div>
+              <div>
+                <p>Phone Number To Contact You</p>
+                <input id="phonenumber"required placeholder="(###)###-####" type="number"/>
+                <button class="addnum">Add Your Number</button>
+              </div>
+            </div>
+            <p>Total Summary</p>
+            <div class="summary">
+            <div class="orderdetails">
+            <p>Sub total</p>
+            <p class="subtotal">${subtotal}</p>
+            </div>
+            <div class="orderdetails">
+             <p>Taxes</p>
+            <p class="taxes">${subtotal * stateTax}</p>
+            </div>
+            <div class="orderdetails">
+            <p>Total</p>
+            <p class="total">${total}</p>
+            </div>
+            </div>
+            <button class="finalize-order">Place Order</button>
+           </div>
+           <!---->
         </div>
       </section>
     </main>
