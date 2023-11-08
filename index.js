@@ -27,6 +27,14 @@ var deliveryFee = 8.0;
 var delivery = false;
 var finalOrder = [];
 const arrClass = document.querySelectorAll(".additem");
+document.addEventListener("click", addtoorder);
+function addtoorder(event) {
+  if (element.classList.contains("additem")) {
+    var orderBegin = document.querySelector(".placeorder-bttn");
+   orderBegin.innerHTML = '<button class="orderstarted">MANAGE ORDER</button>';
+  }
+}
+/*
 arrClass.forEach((item, i) => {
   //there are 28 items and i(index) in the arrClass
   item.addEventListener("click", (event) => {
@@ -283,4 +291,4 @@ document.querySelector('.finalize-order').addEventListener('click',()=>{
         console.log(finalOrder);
     }
 })
-
+*/
