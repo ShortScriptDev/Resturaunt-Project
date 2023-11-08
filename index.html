@@ -131,7 +131,11 @@
               <div class="menuitemrows">
                 <div class="menuitems"><p>Smoked Sausage</p>
                   <p>$3.99</p>
-                  <button class="additem">Add</button>
+                  <button class="additem" 
+                  onClick="
+                  var orderBegin = document.querySelector('.placeorder-bttn');
+                  orderBegin.innerHTML = '<button>MANAGE ORDER</button>';
+                  ">Add</button>
                  </div>
                  <div class="menuitems"><p>Lasagna</p>
                   <p>$3.99</p>
