@@ -1,3 +1,8 @@
+function addItem(){
+  var orderBegin = document.querySelector('.placeorder-bttn');
+   orderBegin.innerHTML = '<button class="orderstarted" >MANAGE ORDER</button>';
+}
+
 //add event listener for start order *
 //add event listener for add item to order *
 //add event listener for remove item from order
@@ -10,7 +15,7 @@
 
 //integrate payment api system for place order button.
 // send data to api.
-var order = [];
+/*var order = [];
 var orderIndex = 0;
 var stateTax = 0.1;
 var subtotal = 0;
@@ -25,15 +30,15 @@ var i = 0;
 var itemsadded = [];
 var deliveryFee = 8.0;
 var delivery = false;
-var finalOrder = [];
-const arrClass = document.querySelectorAll(".additem");
+var finalOrder = [];*/
+/*const arrClass = document.querySelectorAll(".additem");
 document.addEventListener("click", addtoorder);
 function addtoorder(event) {
   if (element.classList.contains("additem")) {
     var orderBegin = document.querySelector(".placeorder-bttn");
    orderBegin.innerHTML = '<button class="orderstarted">MANAGE ORDER</button>';
   }
-}
+}*/
 /*
 arrClass.forEach((item, i) => {
   //there are 28 items and i(index) in the arrClass
