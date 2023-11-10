@@ -1,6 +1,9 @@
-function addItem(){
-  var orderBegin = document.querySelector('.placeorder-bttn');
-   orderBegin.innerHTML = '<button class="orderstarted" >MANAGE ORDER</button>';
+const addBttns = document.getElementsByClassName(".additem");
+for(let i = 0; i < addBttns.length; i++){
+  addBttns[i].addEventListener("click", (event)=>{
+    var orderBegin = document.querySelector('.placeorder-bttn');
+    orderBegin.innerHTML = '<button class="orderstarted" >MANAGE ORDER</button>';
+  });
 }
 
 //add event listener for start order *
