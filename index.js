@@ -4,6 +4,29 @@ for(let i = 0; i < addBttns.length; i++){
   addBttns[i].addEventListener("click", ()=>{
     var orderBegin = document.querySelector('.placeorder-bttn');
     orderBegin.innerHTML = '<button class="orderstarted" >MANAGE ORDER</button>';
+    var parentEl = addBttns[i].parentElement;
+    var menuItem = parentEl.innerText;
+    var orderDetails = menuItem.split(/\n\n/);
+    var number = orderDetails[1].replace("$", "");
+    orderItems = {};
+    var price = Number(number);
+    //add data from element to the global order array
+    orderItems.title = orderDetails[0];
+    orderItems.price = price;
+    //orderitems is changing everytime we additem
+    order.push(orderItems);
+    // add price to the subtotal of order
+    subtotal += price;
+    //
+    var taxes = subtotal * stateTax;
+    //add the statetax to the sub total
+    total = subtotal * stateTax;
+    //add subtotal of item to total
+    total += subtotal;
+    document.querySelector(".subtotal").innerHTML = subtotal.toFixed(2);
+    document.querySelector(".taxes").innerHTML = taxes.toFixed(2);
+    document.querySelector(".total").innerHTML = total.toFixed(2);
+    
   });
 }
 
@@ -69,6 +92,7 @@ arrClass.forEach((item, i) => {
     document.querySelector(".subtotal").innerHTML = subtotal.toFixed(2);
     document.querySelector(".taxes").innerHTML = taxes.toFixed(2);
     document.querySelector(".total").innerHTML = total.toFixed(2);
+
     //incrament order number
     if (itemsadded.includes(i)) {
       var itemEl = document.getElementById(order[orderNum].title);
