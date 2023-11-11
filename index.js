@@ -36,8 +36,16 @@ for(let i = 0; i < addBttns.length; i++){
       document.querySelector(".selected").classList.remove("selected");
       document.querySelector(".pickup").classList.add("selected");
         });
-    subtotal = 14;
-    taxes = 14 * 0.2;
+    var parentEl = addBttns[i].parentElement;
+    var menuItem = parentEl.innerText;
+    var orderDetails = menuItem.split(/\n\n/);
+    var number = orderDetails[1].replace("$", "");
+    console.log(parentEl);
+    console.log(menuItem);
+    console.log(orderDetails);
+    console.log(number);
+    subtotal = number;
+    taxes = number * 0.2;
     total = subtotal + taxes;
     document.querySelector(".subtotal").innerHTML = subtotal.toFixed(2);
     document.querySelector(".taxes").innerHTML = taxes.toFixed(2);
