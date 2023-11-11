@@ -8,7 +8,6 @@ var numadded = false;
 var addressadded = false;
 var amountOfItem = 0;
 var orderNum = 0;
-var orderItems = {};
 var i = 0;
 var itemsadded = [];
 var deliveryFee = 8.0;
@@ -41,10 +40,18 @@ for(let i = 0; i < addBttns.length; i++){
     let price = menuItem.innerHTML;
     price = price.replace("$", "");
     price = Number(price);
-    document.querySelector(".subtotal").innerHTML = price;
-   // document.querySelector(".taxes").innerHTML = '0.10';
-    document.querySelector(".total").innerHTML = 200;
-  
+    subtotal += price;
+    taxes = price * stateTax;
+    total += subtotal + taxes;
+    document.querySelector(".subtotal").innerHTML = subtotal;
+    document.querySelector(".taxes").innerHTML = taxes;
+    document.querySelector(".total").innerHTML = total;
+    var itemTitle = parentEl.querySelector('.menuitems');
+    itemTitle = itemTitle.innerHTML; 
+    var orderItems = {};
+    orderItems.title = itemTitle;
+    orderItems.price = price;
+    order.push(orderItems);
     //end of click eventlistener for each button.
   });
   //end of for loop for each button
