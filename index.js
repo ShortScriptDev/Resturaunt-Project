@@ -32,43 +32,10 @@ for(let i = 0; i < addBttns.length; i++){
       document.querySelector(".delivery").addEventListener("click", () => {
           document.querySelector(".selected").classList.remove("selected");
           document.querySelector(".delivery").classList.add("selected");
-          var customerInfo = document.querySelector(".customer-info");
-          var addToSummary = document.querySelector(".summary");
-          var DelivAdd = document.createElement("div");
-          customerInfo.append(DelivAdd);
-          DelivAdd.innerHTML =
-            '<div>\
-              <p>Delivery Address</p>\
-              <input id="delivery-address" required placeholder="123 street unit/apt #"type="text"/>\
-              <button class="addaddress">Add to order</button>\
-              </div>';
-          //
-          var addDeliveryFee = document.createElement("div");
-          addDeliveryFee.classList.add("orderdetails");
-          addDeliveryFee.classList.add("delivery-fee");
-          addDeliveryFee.innerHTML = `<p>Delivery Fee</p><p>${deliveryFee}</p>`;
-          total += deliveryFee;
-          console.log(addDeliveryFee);
-          document.querySelector(".total").innerHTML = total.toFixed(2);
-          document.querySelector(".summary").prepend(addDeliveryFee);
-          delivery = true;
-  
       })
           document.querySelector(".pickup").addEventListener("click", () => {
             document.querySelector(".selected").classList.remove("selected");
             document.querySelector(".pickup").classList.add("selected");
-            DelivAdd.remove();
-            var deliveryAddEl = document.querySelector(".delivery-address");
-            var deliveryFeeEl = document.querySelector(".delivery-fee");
-            if (typeof deliveryAddEl != "undefined" && deliveryAddEl != null) {
-              document.querySelector(".delivery-address").remove();
-            }
-            if (typeof deliveryFeeEl != "undefined" && deliveryFeeEl != null) {
-              document.querySelector(".delivery-fee").remove();
-              total -= deliveryFee;
-              document.querySelector(".total").innerHTML = total.toFixed(2);
-              delivery = false;
-            }
           });
     })  
   });
