@@ -1,4 +1,5 @@
-const addBttns = document.getElementsByClassName(".additem");
+var addBttns = document.getElementsByClassName('additem');
+console.log(addBttns);
 for(let i = 0; i < addBttns.length; i++){
   addBttns[i].addEventListener("click", ()=>{
     var orderBegin = document.querySelector('.placeorder-bttn');
