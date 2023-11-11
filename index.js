@@ -43,9 +43,9 @@ for(let i = 0; i < addBttns.length; i++){
     subtotal = number;
     taxes = number * 0.2;
     total = subtotal + taxes;
-    document.querySelector(".subtotal").innerHTML = subtotal.toFixed(2);
-    document.querySelector(".taxes").innerHTML = taxes.toFixed(2);
-    document.querySelector(".total").innerHTML = total.toFixed(2);
+    document.querySelector(".subtotal").innerHTML = subtotal;
+    document.querySelector(".taxes").innerHTML = taxes;
+    document.querySelector(".total").innerHTML = total;
   
     //end of click eventlistener for each button.
   });
