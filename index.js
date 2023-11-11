@@ -43,7 +43,7 @@ for(let i = 0; i < addBttns.length; i++){
     price = Number(price);
     document.querySelector(".subtotal").innerHTML = price;
    // document.querySelector(".taxes").innerHTML = '0.10';
-    document.querySelector(".total").innerHTML = price;
+    document.querySelector(".total").innerHTML = 200;
   
     //end of click eventlistener for each button.
   });
