@@ -53,6 +53,7 @@ for(let i = 0; i < addBttns.length; i++){
           document.querySelector(".summary").prepend(addDeliveryFee);
           delivery = true;
   
+      })
           document.querySelector(".pickup").addEventListener("click", () => {
             document.querySelector(".selected").classList.remove("selected");
             document.querySelector(".pickup").classList.add("selected");
