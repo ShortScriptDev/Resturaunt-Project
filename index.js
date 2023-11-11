@@ -30,6 +30,16 @@ for(let i = 0; i < addBttns.length; i++){
     document.querySelector(".delivery").addEventListener("click", () => {
       document.querySelector(".selected").classList.remove("selected");
       document.querySelector(".delivery").classList.add("selected");
+      var customerInfo = document.querySelector(".customer-info");
+   //   var addToSummary = document.querySelector(".summary");
+      var DelivAdd = document.createElement("div");
+      DelivAdd.innerHTML =
+          '<div>\
+            <p>Delivery Address</p>\
+            <input id="delivery-address" required placeholder="123 street unit/apt #"type="text"/>\
+            <button class="addaddress">Add to order</button>\
+            </div>';
+      customerInfo.append(DelivAdd);
     })
     document.querySelector(".pickup").addEventListener("click", () => {
       document.querySelector(".selected").classList.remove("selected");
@@ -52,7 +62,6 @@ for(let i = 0; i < addBttns.length; i++){
     orderItems.title = title;
     orderItems.price = price;
     order.push(orderItems);
-    console.log(order[0].title)
     //
     if (itemsadded.includes(i)) {
       let itemEl = document.getElementById(order[orderNum].title);
