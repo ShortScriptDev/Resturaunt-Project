@@ -21,25 +21,23 @@ for(let i = 0; i < addBttns.length; i++){
   addBttns[i].addEventListener("click", ()=>{
     // eventlistener for order started
     var orderBegin = document.querySelector(".placeorder-bttn");
-    orderBegin.innerHTML = '<button class="orderstarted">MANAGE ORDER</button>';
-
+    orderBegin.innerHTML = '<button class="orderstarted">MANAGE ORDER</button>'; 
     document.querySelector(".orderstarted").addEventListener("click", () => {
       document.querySelector(".manage-order").style = "visibility: visible";
-      document.querySelector(".bi-x-circle-fill").addEventListener("click", () => {
-        document.querySelector(".manage-order").style = "visibility: hidden";
-        });
-      
-      document.querySelector(".delivery").addEventListener("click", () => {
+    }) 
+    document.querySelector(".bi-x-circle-fill").addEventListener("click", () => {
+      document.querySelector(".manage-order").style = "visibility: hidden";
+    });
+    document.querySelector(".delivery").addEventListener("click", () => {
+        document.querySelector(".selected").classList.remove("selected");
+        document.querySelector(".delivery").classList.add("selected");
+    })
+        document.querySelector(".pickup").addEventListener("click", () => {
           document.querySelector(".selected").classList.remove("selected");
-          document.querySelector(".delivery").classList.add("selected");
-      })
-          document.querySelector(".pickup").addEventListener("click", () => {
-            document.querySelector(".selected").classList.remove("selected");
-            document.querySelector(".pickup").classList.add("selected");
-          });
-    })  
+          document.querySelector(".pickup").classList.add("selected");
+        });
   });
-}
+};
 
 //add event listener for start order *
 //add event listener for add item to order *
