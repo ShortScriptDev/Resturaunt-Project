@@ -40,6 +40,11 @@ for(let i = 0; i < addBttns.length; i++){
             <button class="addaddress">Add to order</button>\
             </div>';
       customerInfo.append(DelivAdd);
+      var addDeliveryFee = document.createElement("div");
+      addDeliveryFee.classList.add("orderdetails");
+      addDeliveryFee.classList.add("delivery-fee");
+      addDeliveryFee.innerHTML = `<p>Delivery Fee</p><p>${deliveryFee}</p>`;
+        total += deliveryFee;
     })
     document.querySelector(".pickup").addEventListener("click", () => {
       document.querySelector(".selected").classList.remove("selected");
@@ -52,7 +57,7 @@ for(let i = 0; i < addBttns.length; i++){
     price = Number(price);
     subtotal += price;
     taxes = subtotal * stateTax;
-    total += subtotal + taxes;
+    total = subtotal + taxes;
     document.querySelector(".subtotal").innerHTML = subtotal;
     document.querySelector(".taxes").innerHTML = taxes;
     document.querySelector(".total").innerHTML = total;
