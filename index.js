@@ -36,25 +36,9 @@ for(let i = 0; i < addBttns.length; i++){
       document.querySelector(".selected").classList.remove("selected");
       document.querySelector(".pickup").classList.add("selected");
         });
-    var parentEl = addBttns[i].parentElement;
-    var menuItem = parentEl.innerText;
-    var orderDetails = menuItem.split(/\n\n/);
-    var number = orderDetails[1].replace("$", "");
-    orderItems = {};
-    var price = Number(number);
-    //add data from element to the global order array
-    orderItems.title = orderDetails[0];
-    orderItems.price = price;
-    //orderitems is changing everytime we additem
-    order.push(orderItems);
-    // add price to the subtotal of order
-    subtotal += price;
-    //
-    var taxes = subtotal * stateTax;
-    //add the statetax to the sub total
-    total = subtotal * stateTax;
-    //add subtotal of item to total
-    total += subtotal;
+    subtotal = 14;
+    taxes = 14 * 0.2;
+    total = subtotal + taxes;
     document.querySelector(".subtotal").innerHTML = subtotal.toFixed(2);
     document.querySelector(".taxes").innerHTML = taxes.toFixed(2);
     document.querySelector(".total").innerHTML = total.toFixed(2);
