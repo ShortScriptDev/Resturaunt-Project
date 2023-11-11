@@ -40,12 +40,10 @@ for(let i = 0; i < addBttns.length; i++){
     var menuItem = parentEl.innerText;
     var orderDetails = menuItem.split(/\n\n/);
     var number = orderDetails[1].replace("$", "");
-    subtotal = number;
-    taxes = '.10';
-    total = subtotal;
-    document.querySelector(".subtotal").innerHTML = subtotal;
-    document.querySelector(".taxes").innerHTML = taxes;
-    document.querySelector(".total").innerHTML = total;
+    var price = Number(number);
+    document.querySelector(".subtotal").innerHTML = price;
+    document.querySelector(".taxes").innerHTML = price;
+    document.querySelector(".total").innerHTML = price;
   
     //end of click eventlistener for each button.
   });
