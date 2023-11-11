@@ -52,7 +52,10 @@ for(let i = 0; i < addBttns.length; i++){
     document.querySelector(".pickup").addEventListener("click", () => {
       document.querySelector(".selected").classList.remove("selected");
       document.querySelector(".pickup").classList.add("selected");
-        });
+      DelivAdd.remove();
+          var deliveryAddEl = document.querySelector(".delivery-address");
+          var deliveryFeeEl = document.querySelector(".delivery-fee");
+    });
     var parentEl = addBttns[i].parentElement;
     var menuItem = parentEl.querySelector('.price');
     let price = menuItem.innerHTML;
