@@ -37,13 +37,11 @@ for(let i = 0; i < addBttns.length; i++){
       document.querySelector(".pickup").classList.add("selected");
         });
     var parentEl = addBttns[i].parentElement;
-    var menuItem = parentEl.innerText;
-    var orderDetails = menuItem.split(/\n\n/);
-    var number = orderDetails[1].replace("$", "");
-    var price = Number(number);
+    var menuItem = parentEl.querySelector('.price');
+    let price = menuItem.innerHTML;
     document.querySelector(".subtotal").innerHTML = price;
-    document.querySelector(".taxes").innerHTML = '0.10';
-    document.querySelector(".total").innerHTML = price;
+   // document.querySelector(".taxes").innerHTML = '0.10';
+   // document.querySelector(".total").innerHTML = price;
   
     //end of click eventlistener for each button.
   });
