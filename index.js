@@ -19,57 +19,6 @@ var addBttns = document.getElementsByClassName('additem');
 console.log(addBttns);
 for(let i = 0; i < addBttns.length; i++){
   addBttns[i].addEventListener("click", ()=>{
-    var parentEl = addBttns[i].parentElement;
-    var menuItem = parentEl.innerText;
-    var orderDetails = menuItem.split(/\n\n/);
-    var number = orderDetails[1].replace("$", "");
-    orderItems = {};
-    var price = Number(number);
-    //add data from element to the global order array
-    orderItems.title = orderDetails[0];
-    orderItems.price = price;
-    //orderitems is changing everytime we additem
-    order.push(orderItems);
-    // add price to the subtotal of order
-    subtotal += price;
-    //
-    var taxes = subtotal * stateTax;
-    //add the statetax to the sub total
-    total = subtotal * stateTax;
-    //add subtotal of item to total
-    total += subtotal;
-    document.querySelector(".subtotal").innerHTML = subtotal.toFixed(2);
-    document.querySelector(".taxes").innerHTML = taxes.toFixed(2);
-    document.querySelector(".total").innerHTML = total.toFixed(2);
-    
-    //incrament order number
-    if (itemsadded.includes(i)) {
-      var itemEl = document.getElementById(order[orderNum].title);
-      itemEl = itemEl.parentElement.querySelector(".amountofitem");
-      var quantity = itemEl.innerText;
-      quantity = Number(quantity);
-      var updateQuant = quantity + 1;
-      itemEl.innerHTML = `${updateQuant}`;
-        console.log(order);
-        } else {
-      var orderLists = document.querySelector(".placeorder-items");
-      var placeOrderItem = document.createElement("div");
-      placeOrderItem.innerHTML = `
-     <div class="order-list">\
-     <p id="${order[orderNum].title}">${order[orderNum].title}</p>\
-     <p class="price" >${order[orderNum].price}</p>
-     <div class="order-manage">\
-     <p class="amountofitem">1</p>\
-     <div style="display: grid;grid-template-columns: 1fr 1fr;">\
-     <button class="removeitems">-</button>\
-     <button class="additems">+</button>\
-     </div>\
-     </div>`;
-      orderLists.append(placeOrderItem);
-      itemsadded.push(i);
-    }
-    orderNum++;
-    amountOfItem++;
     // eventlistener for order started
     var orderBegin = document.querySelector(".placeorder-bttn");
     orderBegin.innerHTML = '<button class="orderstarted">MANAGE ORDER</button>';
