@@ -29,14 +29,39 @@ for(let i = 0; i < addBttns.length; i++){
       document.querySelector(".manage-order").style = "visibility: hidden";
     });
     document.querySelector(".delivery").addEventListener("click", () => {
-        document.querySelector(".selected").classList.remove("selected");
-        document.querySelector(".delivery").classList.add("selected");
+      document.querySelector(".selected").classList.remove("selected");
+      document.querySelector(".delivery").classList.add("selected");
     })
-        document.querySelector(".pickup").addEventListener("click", () => {
-          document.querySelector(".selected").classList.remove("selected");
-          document.querySelector(".pickup").classList.add("selected");
+    document.querySelector(".pickup").addEventListener("click", () => {
+      document.querySelector(".selected").classList.remove("selected");
+      document.querySelector(".pickup").classList.add("selected");
         });
+    var parentEl = addBttns[i].parentElement;
+    var menuItem = parentEl.innerText;
+    var orderDetails = menuItem.split(/\n\n/);
+    var number = orderDetails[1].replace("$", "");
+    orderItems = {};
+    var price = Number(number);
+    //add data from element to the global order array
+    orderItems.title = orderDetails[0];
+    orderItems.price = price;
+    //orderitems is changing everytime we additem
+    order.push(orderItems);
+    // add price to the subtotal of order
+    subtotal += price;
+    //
+    var taxes = subtotal * stateTax;
+    //add the statetax to the sub total
+    total = subtotal * stateTax;
+    //add subtotal of item to total
+    total += subtotal;
+    document.querySelector(".subtotal").innerHTML = subtotal.toFixed(2);
+    document.querySelector(".taxes").innerHTML = taxes.toFixed(2);
+    document.querySelector(".total").innerHTML = total.toFixed(2);
+  
+    //end of click eventlistener for each button.
   });
+  //end of for loop for each button
 };
 
 //add event listener for start order *
