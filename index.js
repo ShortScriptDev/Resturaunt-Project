@@ -42,7 +42,7 @@ for(let i = 0; i < addBttns.length; i++){
     var number = orderDetails[1].replace("$", "");
     var price = Number(number);
     document.querySelector(".subtotal").innerHTML = price;
-    document.querySelector(".taxes").innerHTML = price;
+    document.querySelector(".taxes").innerHTML = '0.10';
     document.querySelector(".total").innerHTML = price;
   
     //end of click eventlistener for each button.
