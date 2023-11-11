@@ -40,10 +40,6 @@ for(let i = 0; i < addBttns.length; i++){
     var menuItem = parentEl.innerText;
     var orderDetails = menuItem.split(/\n\n/);
     var number = orderDetails[1].replace("$", "");
-    console.log(parentEl);
-    console.log(menuItem);
-    console.log(orderDetails);
-    console.log(number);
     subtotal = number;
     taxes = number * 0.2;
     total = subtotal + taxes;
