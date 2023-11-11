@@ -41,7 +41,7 @@ for(let i = 0; i < addBttns.length; i++){
     price = price.replace("$", "");
     price = Number(price);
     subtotal += price;
-    taxes = price * stateTax;
+    taxes = subtotal * stateTax;
     total += subtotal + taxes;
     document.querySelector(".subtotal").innerHTML = subtotal;
     document.querySelector(".taxes").innerHTML = taxes;
@@ -52,6 +52,32 @@ for(let i = 0; i < addBttns.length; i++){
     orderItems.title = itemTitle;
     orderItems.price = price;
     order.push(orderItems);
+    //
+    if (itemsadded.includes(i)) {
+      var itemEl = document.getElementById(order[orderNum].title);
+      itemEl = itemEl.parentElement.querySelector(".amountofitem");
+      var quantity = itemEl.innerText;
+      quantity = Number(quantity);
+      var updateQuant = quantity + 1;
+      itemEl.innerHTML = `${updateQuant}`;
+        console.log(order);
+        } else {
+      var orderLists = document.querySelector(".placeorder-items");
+      var placeOrderItem = document.createElement("div");
+      placeOrderItem.innerHTML = `
+     <div class="order-list">\
+     <p id="${order[orderNum].title}">${order[orderNum].title}</p>\
+     <p class="price" >${order[orderNum].price}</p>
+     <div class="order-manage">\
+     <p class="amountofitem">1</p>\
+     <div style="display: grid;grid-template-columns: 1fr 1fr;">\
+     <button class="removeitems">-</button>\
+     <button class="additems">+</button>\
+     </div>\
+     </div>`;
+      orderLists.append(placeOrderItem);
+      itemsadded.push(i);
+    }
     //end of click eventlistener for each button.
   });
   //end of for loop for each button
