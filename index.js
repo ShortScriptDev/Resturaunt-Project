@@ -46,24 +46,24 @@ for(let i = 0; i < addBttns.length; i++){
     document.querySelector(".subtotal").innerHTML = subtotal;
     document.querySelector(".taxes").innerHTML = taxes;
     document.querySelector(".total").innerHTML = total;
-    var itemTitle = parentEl.querySelector('.menuitems');
-    itemTitle = itemTitle.innerHTML; 
+    var itemTitle = parentEl.querySelector('.title');
+    let title = itemTitle.innerHTML; 
     var orderItems = {};
-    orderItems.title = itemTitle;
+    orderItems.title = title;
     orderItems.price = price;
     order.push(orderItems);
+    console.log(order[0].title)
     //
     if (itemsadded.includes(i)) {
-      var itemEl = document.getElementById(order[orderNum].title);
+      let itemEl = document.getElementById(order[orderNum].title);
       itemEl = itemEl.parentElement.querySelector(".amountofitem");
-      var quantity = itemEl.innerText;
+      let quantity = itemEl.innerText;
       quantity = Number(quantity);
-      var updateQuant = quantity + 1;
+      let updateQuant = quantity + 1;
       itemEl.innerHTML = `${updateQuant}`;
-        console.log(order);
         } else {
-      var orderLists = document.querySelector(".placeorder-items");
-      var placeOrderItem = document.createElement("div");
+      let orderLists = document.querySelector(".placeorder-items");
+      let placeOrderItem = document.createElement("div");
       placeOrderItem.innerHTML = `
      <div class="order-list">\
      <p id="${order[orderNum].title}">${order[orderNum].title}</p>\
@@ -78,6 +78,8 @@ for(let i = 0; i < addBttns.length; i++){
       orderLists.append(placeOrderItem);
       itemsadded.push(i);
     }
+    orderNum++;
+    amountOfItem++;
     //end of click eventlistener for each button.
   });
   //end of for loop for each button
