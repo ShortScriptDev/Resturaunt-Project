@@ -44,7 +44,10 @@ for(let i = 0; i < addBttns.length; i++){
       addDeliveryFee.classList.add("orderdetails");
       addDeliveryFee.classList.add("delivery-fee");
       addDeliveryFee.innerHTML = `<p>Delivery Fee</p><p>${deliveryFee}</p>`;
-        total += deliveryFee;
+      total += deliveryFee;
+      document.querySelector(".total").innerHTML = total;
+      document.querySelector(".summary").prepend(addDeliveryFee);
+      delivery = true;
     })
     document.querySelector(".pickup").addEventListener("click", () => {
       document.querySelector(".selected").classList.remove("selected");
