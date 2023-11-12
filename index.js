@@ -13,7 +13,7 @@ var itemsadded = [];
 var deliveryFee = 8.0;
 var delivery = false;
 var finalOrder = [];
-
+var delivAdd;
 var addBttns = document.getElementsByClassName('additem');
 console.log(addBttns);
 for(let i = 0; i < addBttns.length; i++){
@@ -32,14 +32,14 @@ for(let i = 0; i < addBttns.length; i++){
       document.querySelector(".delivery").classList.add("selected");
       var customerInfo = document.querySelector(".customer-info");
    //   var addToSummary = document.querySelector(".summary");
-      var DelivAdd = document.createElement("div");
-      DelivAdd.innerHTML =
+      var delivAdd = document.createElement("div");
+      delivAdd.innerHTML =
           '<div>\
             <p>Delivery Address</p>\
             <input id="delivery-address" required placeholder="123 street unit/apt #"type="text"/>\
             <button class="addaddress">Add to order</button>\
             </div>';
-      customerInfo.append(DelivAdd);
+      customerInfo.append(delivAdd);
       var addDeliveryFee = document.createElement("div");
       addDeliveryFee.classList.add("orderdetails");
       addDeliveryFee.classList.add("delivery-fee");
@@ -48,14 +48,24 @@ for(let i = 0; i < addBttns.length; i++){
       document.querySelector(".total").innerHTML = total;
       document.querySelector(".summary").prepend(addDeliveryFee);
       delivery = true;
+      document.querySelector(".pickup").addEventListener("click", () => {
+        document.querySelector(".selected").classList.remove("selected");
+        document.querySelector(".pickup").classList.add("selected");
+        delivAdd.remove();
+        var deliveryAddEl = document.querySelector(".delivery-address");
+        var deliveryFeeEl = document.querySelector(".delivery-fee");
+        if (typeof deliveryAddEl != "undefined" && deliveryAddEl != null) {
+          document.querySelector(".delivery-address").remove();
+        }
+        if (typeof deliveryFeeEl != "undefined" && deliveryFeeEl != null) {
+          document.querySelector(".delivery-fee").remove();
+          total -= deliveryFee;
+          document.querySelector(".total").innerHTML = total.toFixed(2);
+          delivery = false;
+        }
+      });
     })
-    document.querySelector(".pickup").addEventListener("click", () => {
-      document.querySelector(".selected").classList.remove("selected");
-      document.querySelector(".pickup").classList.add("selected");
-      DelivAdd.remove();
-          var deliveryAddEl = document.querySelector(".delivery-address");
-          var deliveryFeeEl = document.querySelector(".delivery-fee");
-    });
+    
     var parentEl = addBttns[i].parentElement;
     var menuItem = parentEl.querySelector('.price');
     let price = menuItem.innerHTML;
