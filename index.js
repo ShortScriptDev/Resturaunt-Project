@@ -64,8 +64,75 @@ for(let i = 0; i < addBttns.length; i++){
           delivery = false;
         }
       });
-    })
-    
+      
+    document.querySelector(".addaddress").addEventListener("click", () => {
+      var addToSummary = document.querySelector(".summary");
+      var address = document.getElementById("delivery-address").value;
+      var addAddress = document.createElement("div");
+      addAddress.classList.add("orderdetails");
+      addAddress.classList.add("delivery-address");
+      var element = document.querySelector(".delivery-address");
+      //
+
+      if (typeof element != "undefined" && element != null) {
+        // Exists.
+        console.log("address exists already");
+        var updatedAdress =
+          document.getElementById("delivery-address").value;
+        document.querySelector(".addressadded").innerText = updatedAdress;
+        document.getElementById("delivery-address").value = "";
+      } else {
+        console.log("address not added");
+        addAddress.innerHTML = `<p>Delivery Address</p> <p class="addressadded">${address}</p>`;
+        addToSummary.prepend(addAddress);
+        document.getElementById("delivery-address").value = "";
+        var addAddbutt = document.querySelector(".addaddress");
+        addAddbutt.style = "background-color:lightgreen";
+        addAddbutt.innerText = "Update Address";
+      }
+    });
+    //end of delivery added 
+    });
+    document.querySelector(".addname").addEventListener("click", () => {
+      var addToSummary = document.querySelector(".summary");
+      var name = document.getElementById("name").value;
+      var addName = document.createElement("div");
+      addName.classList.add("orderdetails");
+      if (nameadded === false) {
+        addName.innerHTML = `<p>Name on Order</p> <p class="nameadded">${name}</p>`;
+        addToSummary.prepend(addName);
+        var addNamebutt = document.querySelector(".addname");
+        addNamebutt.style = "background-color:lightgreen";
+        addNamebutt.innerText = "Update Name";
+        document.getElementById("name").value = "";
+        nameadded = true;
+      } else {
+        var updatedName = document.getElementById("name").value;
+        var changeName = document.querySelector(".nameadded");
+        changeName.innerHTML = `<span>${updatedName}</span>`;
+        document.getElementById("name").value = "";
+      }
+    });
+    document.querySelector(".addnum").addEventListener("click", () => {
+      var addToSummary = document.querySelector(".summary");
+      var number = document.getElementById("phonenumber").value;
+      var addNum = document.createElement("div");
+      addNum.classList.add("orderdetails");
+      if (numadded === false) {
+        addNum.innerHTML = `<p>Contact Info</p> <p class="numadded">${number}</p>`;
+        addToSummary.prepend(addNum);
+        var addNumbutt = document.querySelector(".addnum");
+        addNumbutt.style = "background-color:lightgreen";
+        addNumbutt.innerText = "Update Number";
+        document.getElementById("phonenumber").value = "";
+        numadded = true;
+      } else {
+        var updatedName = document.getElementById("phonenumber").value;
+        var changeName = document.querySelector(".numadded");
+        changeName.innerHTML = `<span>${updatedName}</span>`;
+        document.getElementById("phonenumber").value = "";
+      }
+    });
     var parentEl = addBttns[i].parentElement;
     var menuItem = parentEl.querySelector('.price');
     let price = menuItem.innerHTML;
@@ -110,6 +177,7 @@ for(let i = 0; i < addBttns.length; i++){
     }
     orderNum++;
     amountOfItem++;
+
     //end of click eventlistener for each button.
   });
   //end of for loop for each button
