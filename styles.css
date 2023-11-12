@@ -446,7 +446,7 @@ footer{
     background-color: black;
     z-index:1;
     color:white;
-    border:2px solid blue;
+    border:1px solid white;
     position: fixed;
     bottom: 37pt;
     right: 0;
@@ -459,10 +459,13 @@ footer{
     margin-bottom: 15px;
 }
 .order-header h2{
-    font-size: 20px;
+    font-size: 15px;
+    margin:auto;
 }
 .placeorder-items{
     margin-bottom:10px;
+    margin-left:10px;
+    margin-right:10px;
 }
 .order-manage{
     display: grid;
@@ -496,6 +499,7 @@ footer{
     display: grid;
     grid-template-rows: auto;
     margin-top:5px;
+    margin-left: 10px;
 }
 .orderdetails{
     display: grid;
@@ -504,6 +508,31 @@ footer{
 .order-list{
     display: grid;
     grid-template-columns: 2fr 1fr 1fr;
+}
+.bi-x-circle-fill{
+    margin:5px;
+    color:#fc814a;
+}
+.removeitems, .additems{
+    background-color:white;
+}
+.addname, .addnum, .addaddress{
+    background-color: #e8e8e8;
+    color:#2ba84a;
+    border:none;
+    padding:2px;
+}
+.finalize-order{
+    margin-left: 10px;
+    margin-bottom: 10px;
+    padding: 5px;
+    margin-top: 10px;
+    background-color: white;
+    border-radius: 5px;
+    border: none;
+}
+.customer-info{
+    margin-left:5px;
 }
 @media (max-width:1350px){
     header{
@@ -812,13 +841,14 @@ footer{
         padding-right: 12px;
     }
     .placeorder-bttn button{
-        width:110px;
+        width:128px;
     }
     .contact-info{
         font-size:10px;
     }
-    
-    
+    .manage-order{
+        width: 80%;
+    }
     }
 @media (max-width:525px){
     
@@ -1053,10 +1083,13 @@ footer{
     padding-right: 12px;
 }
 .placeorder-bttn button{
-    width:110px;
+    width:128px;
 }
 .contact-info{
     font-size:10px;
+}
+.manage-order{
+    width: 80%;
 }
 
 }

@@ -14,8 +14,8 @@ var deliveryFee = 8.0;
 var delivery = false;
 var finalOrder = [];
 var delivAdd;
+var customerInfo = {};
 var addBttns = document.getElementsByClassName('additem');
-console.log(addBttns);
 for(let i = 0; i < addBttns.length; i++){
   addBttns[i].addEventListener("click", ()=>{
     // eventlistener for order started
@@ -25,115 +25,158 @@ for(let i = 0; i < addBttns.length; i++){
       document.querySelector(".manage-order").style = "visibility: visible";
     }) 
     document.querySelector(".bi-x-circle-fill").addEventListener("click", () => {
-      document.querySelector(".manage-order").style = "visibility: hidden";
+      document.querySelector(".manage-order").style = "display: none";
     });
     document.querySelector(".delivery").addEventListener("click", () => {
       document.querySelector(".selected").classList.remove("selected");
       document.querySelector(".delivery").classList.add("selected");
-      var customerInfo = document.querySelector(".customer-info");
-   //   var addToSummary = document.querySelector(".summary");
-      var delivAdd = document.createElement("div");
-      delivAdd.innerHTML =
-          '<div>\
-            <p>Delivery Address</p>\
-            <input id="delivery-address" required placeholder="123 street unit/apt #"type="text"/>\
-            <button class="addaddress">Add to order</button>\
-            </div>';
-      customerInfo.append(delivAdd);
-      var addDeliveryFee = document.createElement("div");
-      addDeliveryFee.classList.add("orderdetails");
-      addDeliveryFee.classList.add("delivery-fee");
-      addDeliveryFee.innerHTML = `<p>Delivery Fee</p><p>${deliveryFee}</p>`;
-      total += deliveryFee;
-      document.querySelector(".total").innerHTML = total;
-      document.querySelector(".summary").prepend(addDeliveryFee);
-      delivery = true;
-      document.querySelector(".pickup").addEventListener("click", () => {
-        document.querySelector(".selected").classList.remove("selected");
-        document.querySelector(".pickup").classList.add("selected");
-        delivAdd.remove();
-        var deliveryAddEl = document.querySelector(".delivery-address");
-        var deliveryFeeEl = document.querySelector(".delivery-fee");
-        if (typeof deliveryAddEl != "undefined" && deliveryAddEl != null) {
-          document.querySelector(".delivery-address").remove();
-        }
-        if (typeof deliveryFeeEl != "undefined" && deliveryFeeEl != null) {
-          document.querySelector(".delivery-fee").remove();
-          total -= deliveryFee;
-          document.querySelector(".total").innerHTML = total.toFixed(2);
-          delivery = false;
-        }
-      });
-    document.querySelector(".addaddress").addEventListener("click", () => {
-      var addToSummary = document.querySelector(".summary");
-      var address = document.getElementById("delivery-address").value;
-      var addAddress = document.createElement("div");
-      addAddress.classList.add("orderdetails");
-      addAddress.classList.add("delivery-address");
-      var element = document.querySelector(".delivery-address");
-      //
-
-      if (typeof element != "undefined" && element != null) {
-        // Exists.
-        console.log("address exists already");
-        var updatedAdress =
-          document.getElementById("delivery-address").value;
-        document.querySelector(".addressadded").innerText = updatedAdress;
-        document.getElementById("delivery-address").value = "";
-      } else {
-        console.log("address not added");
-        addAddress.innerHTML = `<p>Delivery Address</p> <p class="addressadded">${address}</p>`;
-        addToSummary.prepend(addAddress);
+   if (document.querySelector('.delivery-fee') === null){
+    document.querySelector('.address').style = "visibility: visible";
+    var addDeliveryFee = document.createElement("div");
+    addDeliveryFee.classList.add("orderdetails");
+    addDeliveryFee.classList.add("delivery-fee");
+    addDeliveryFee.innerHTML = `<p>Delivery Fee</p><p>${deliveryFee}</p>`;
+    total += deliveryFee;
+    document.querySelector(".total").innerHTML = total.toFixed(2);
+    document.querySelector(".summary").append(addDeliveryFee);
+    delivery = true;
+    document.querySelector(".pickup").addEventListener("click", () => {
+      document.querySelector(".selected").classList.remove("selected");
+      document.querySelector(".pickup").classList.add("selected");
+      document.querySelector('.address').style = "display: none";
+      var deliveryAddEl = document.querySelector(".delivery-address");
+      var deliveryFeeEl = document.querySelector(".delivery-fee");
+      if (typeof deliveryAddEl != "undefined" && deliveryAddEl != null) {
+        document.querySelector(".delivery-address").remove();
         document.getElementById("delivery-address").value = "";
         var addAddbutt = document.querySelector(".addaddress");
-        addAddbutt.style = "background-color:lightgreen";
-        addAddbutt.innerText = "Update Address";
+        addAddbutt.style = "background-color:lightgray";
+        addAddbutt.innerText = "Add Address";
+      }
+      if (typeof deliveryFeeEl != "undefined" && deliveryFeeEl != null) {
+        document.querySelector(".delivery-fee").remove();
+        total -= deliveryFee;
+        document.querySelector(".total").innerHTML = total.toFixed(2);
+        delivery = false;
       }
     });
+   }
     //end of delivery added 
     });
-    document.querySelector(".addname").addEventListener("click", () => {
-      var addToSummary = document.querySelector(".summary");
-      var name = document.getElementById("name").value;
-      var addName = document.createElement("div");
-      addName.classList.add("orderdetails");
-      if (nameadded === false) {
-        addName.innerHTML = `<p>Name on Order</p> <p class="nameadded">${name}</p>`;
-        addToSummary.prepend(addName);
-        var addNamebutt = document.querySelector(".addname");
-        addNamebutt.style = "background-color:lightgreen";
-        addNamebutt.innerText = "Update Name";
-        document.getElementById("name").value = "";
-        nameadded = true;
-      } else {
-        var updatedName = document.getElementById("name").value;
-        var changeName = document.querySelector(".nameadded");
-        changeName.innerHTML = `<span>${updatedName}</span>`;
-        document.getElementById("name").value = "";
-      }
-    });
-    document.querySelector(".addnum").addEventListener("click", () => {
-      var addToSummary = document.querySelector(".summary");
-      var number = document.getElementById("phonenumber").value;
-      var addNum = document.createElement("div");
-      addNum.classList.add("orderdetails");
-      if (numadded === false) {
-        addNum.innerHTML = `<p>Contact Info</p> <p class="numadded">${number}</p>`;
-        addToSummary.prepend(addNum);
-        var addNumbutt = document.querySelector(".addnum");
-        addNumbutt.style = "background-color:lightgreen";
-        addNumbutt.innerText = "Update Number";
-        document.getElementById("phonenumber").value = "";
-        numadded = true;
-      } else {
-        var updatedName = document.getElementById("phonenumber").value;
-        var changeName = document.querySelector(".numadded");
-        changeName.innerHTML = `<span>${updatedName}</span>`;
-        document.getElementById("phonenumber").value = "";
-      }
-    });
+  
+    var parentEl = addBttns[i].parentElement;
+    var menuItem = parentEl.querySelector('.price');
+    let price = menuItem.innerHTML;
+    price = price.replace("$", "");
+    price = Number(price);
+    subtotal += price;
+    taxes = subtotal * stateTax;
+    total = subtotal + taxes;
+    document.querySelector(".subtotal").innerHTML = subtotal.toFixed(2);
+    document.querySelector(".taxes").innerHTML = taxes.toFixed(2);
+    document.querySelector(".total").innerHTML = total.toFixed(2);
+    var itemTitle = parentEl.querySelector('.title');
+    let title = itemTitle.innerHTML; 
+    var orderItems = {};
+    orderItems.title = title;
+    orderItems.price = price;
+    order.push(orderItems);
     //
-    document.addEventListener("click", someListener);
+    if (itemsadded.includes(i)) {
+      let itemEl = document.getElementById(order[orderNum].title);
+      itemEl = itemEl.parentElement.querySelector(".amountofitem");
+      let quantity = itemEl.innerText;
+      quantity = Number(quantity);
+      let updateQuant = quantity + 1;
+      itemEl.innerHTML = `${updateQuant}`;
+        } else {
+      let orderLists = document.querySelector(".placeorder-items");
+      let placeOrderItem = document.createElement("div");
+      placeOrderItem.innerHTML = `
+     <div class="order-list">\
+     <p id="${order[orderNum].title}">${order[orderNum].title}</p>\
+     <p class="price" >${order[orderNum].price}</p>
+     <div class="order-manage">\
+     <p class="amountofitem">1</p>\
+     <div style="display: grid;grid-template-columns: 1fr 1fr;">\
+     <button class="removeitems">-</button>\
+     <button class="additems">+</button>\
+     </div>\
+     </div>`;
+      orderLists.append(placeOrderItem);
+      itemsadded.push(i);
+    }
+    orderNum++;
+    amountOfItem++;
+
+    //end of click eventlistener for each button.
+  });
+  //end of for loop for each button
+};
+document.querySelector(".addaddress").addEventListener("click", () => {
+  var addToSummary = document.querySelector(".summary");
+  var address = document.getElementById("delivery-address").value;
+  var addAddress = document.createElement("div");
+  addAddress.classList.add("orderdetails");
+  addAddress.classList.add("delivery-address");
+  var element = document.querySelector(".delivery-address");
+  //
+
+  if (typeof element != "undefined" && element != null) {
+    // Exists.
+    var updatedAdress = document.getElementById("delivery-address").value;
+    document.querySelector(".addressadded").innerText = updatedAdress;
+    document.getElementById("delivery-address").value = "";
+  } else {
+    addAddress.innerHTML = `<p>Delivery Address</p> <p class="addressadded">${address}</p>`;
+    addToSummary.prepend(addAddress);
+    document.getElementById("delivery-address").value = "";
+    var addAddbutt = document.querySelector(".addaddress");
+    addAddbutt.style = "background-color:lightgreen color:black";
+    addAddbutt.innerText = "Update Address";
+  }
+});
+document.querySelector(".addname").addEventListener("click", () => {
+  var addToSummary = document.querySelector(".summary");
+  var name = document.getElementById("name").value;
+  var addName = document.createElement("div");
+  addName.classList.add("orderdetails");
+  if (nameadded === false) {
+    addName.innerHTML = `<p>Name on Order</p> <p class="nameadded">${name}</p>`;
+    addToSummary.prepend(addName);
+    var addNamebutt = document.querySelector(".addname");
+    addNamebutt.style = "background-color:lightgreen color:black";
+    addNamebutt.innerText = "Update Name";
+    document.getElementById("name").value = "";
+    nameadded = true;
+  } else {
+    var updatedName = document.getElementById("name").value;
+    var changeName = document.querySelector(".nameadded");
+    changeName.innerHTML = `<span>${updatedName}</span>`;
+    document.getElementById("name").value = "";
+  }
+});
+document.querySelector(".addnum").addEventListener("click", () => {
+  var addToSummary = document.querySelector(".summary");
+  var number = document.getElementById("phonenumber").value;
+  var addNum = document.createElement("div");
+  addNum.classList.add("orderdetails");
+  if (numadded === false) {
+    addNum.innerHTML = `<p>Contact Info</p> <p class="numadded">${number}</p>`;
+    addToSummary.prepend(addNum);
+    var addNumbutt = document.querySelector(".addnum");
+    addNumbutt.style = "background-color:lightgreen color:black";
+    addNumbutt.innerText = "Update Number";
+    document.getElementById("phonenumber").value = "";
+    numadded = true;
+  } else {
+    var updatedName = document.getElementById("phonenumber").value;
+    var changeName = document.querySelector(".numadded");
+    changeName.innerHTML = `<span>${updatedName}</span>`;
+    document.getElementById("phonenumber").value = "";
+  }
+});
+document.addEventListener("click", someListener);
 
 function someListener(event) {
   var element = event.target;
@@ -203,66 +246,54 @@ function someListener(event) {
   }
 }
 document.querySelector('.finalize-order').addEventListener('click',()=>{
-    var fOrder = document.querySelector('.placeorder-items');
-     var   finalOrders = fOrder.querySelectorAll('.order-list');
-    for(var i = 0; i<= finalOrders.length; i++){
-        var allorderitem = finalOrders[i].innerText;
-        var splititem = allorderitem.split(/\n\n/);
-        finalOrder.push(splititem);
-        finalOrder[i].pop();
-        console.log(finalOrder);
+  let customerInfo = {};
+  let finalOrder = [];
+  let name = document.querySelector('.nameadded');
+ let number = document.querySelector('.numadded');
+ let address = document.querySelector('.addressadded')
+  var fOrder = document.querySelector('.placeorder-items');
+   var   finalOrders = fOrder.querySelectorAll('.order-list');
+  for(var i = 0; i < finalOrders.length; i++){
+      var allorderitem = finalOrders[i].innerText;
+    var splititem = allorderitem.split(/\n\n/);
+     finalOrder.push(splititem);
+     finalOrder[i].pop();
+  }
+  if (name === null){
+    alert('Please add a name to your order');
+  }else {
+    name = name.innerText;
+    customerInfo.name = name;
+  }
+  if (number === null){
+    alert('Please add a number to your order')
+  }else{
+    number = number.innerText;
+    customerInfo.number = number;
+  }
+  if (document.querySelector('.delivery-fee') !== null){
+    if (address === null){
+      alert('Please add an address to your order')
+    }else{
+      address = address.innerText;
+      customerInfo.address = address;
     }
+  }
+  /*
+  <div> 
+  <p>Order for ${customerInfo.name}</p>
+  <p>Phone number for customer: ${customerInfo.number}</p>
+  <p>Delivery Address: ${customerInfo.address}</p>
+  <div><p>Order: ${finalOrder[i]}</p></div>
+  <p>Subtotal: ${subtotal}</p>
+  <p>Taxes: ${taxes}</p>
+  <p>Delivery Fee: ${deliveryFee}</p>
+  <p>Total: ${total}</p>
+  <div></div>
+</div>*/
+  //assign each item in finalOrder to api order processor backend
+  //assign customerInfo to api order processor backend
 })
-    //
-    var parentEl = addBttns[i].parentElement;
-    var menuItem = parentEl.querySelector('.price');
-    let price = menuItem.innerHTML;
-    price = price.replace("$", "");
-    price = Number(price);
-    subtotal += price;
-    taxes = subtotal * stateTax;
-    total = subtotal + taxes;
-    document.querySelector(".subtotal").innerHTML = subtotal;
-    document.querySelector(".taxes").innerHTML = taxes;
-    document.querySelector(".total").innerHTML = total;
-    var itemTitle = parentEl.querySelector('.title');
-    let title = itemTitle.innerHTML; 
-    var orderItems = {};
-    orderItems.title = title;
-    orderItems.price = price;
-    order.push(orderItems);
-    //
-    if (itemsadded.includes(i)) {
-      let itemEl = document.getElementById(order[orderNum].title);
-      itemEl = itemEl.parentElement.querySelector(".amountofitem");
-      let quantity = itemEl.innerText;
-      quantity = Number(quantity);
-      let updateQuant = quantity + 1;
-      itemEl.innerHTML = `${updateQuant}`;
-        } else {
-      let orderLists = document.querySelector(".placeorder-items");
-      let placeOrderItem = document.createElement("div");
-      placeOrderItem.innerHTML = `
-     <div class="order-list">\
-     <p id="${order[orderNum].title}">${order[orderNum].title}</p>\
-     <p class="price" >${order[orderNum].price}</p>
-     <div class="order-manage">\
-     <p class="amountofitem">1</p>\
-     <div style="display: grid;grid-template-columns: 1fr 1fr;">\
-     <button class="removeitems">-</button>\
-     <button class="additems">+</button>\
-     </div>\
-     </div>`;
-      orderLists.append(placeOrderItem);
-      itemsadded.push(i);
-    }
-    orderNum++;
-    amountOfItem++;
-
-    //end of click eventlistener for each button.
-  });
-  //end of for loop for each button
-};
 
 //add event listener for start order *
 //add event listener for add item to order *
