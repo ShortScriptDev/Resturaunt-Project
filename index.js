@@ -132,6 +132,88 @@ for(let i = 0; i < addBttns.length; i++){
         document.getElementById("phonenumber").value = "";
       }
     });
+    //
+    document.addEventListener("click", someListener);
+
+function someListener(event) {
+  var element = event.target;
+  if (element.classList.contains("additems")) {
+    var addedButt = event.target;
+    var parentEl = addedButt.parentElement.parentElement;
+    var quantityEl = parentEl.querySelector(".amountofitem");
+    var quantity = quantityEl.innerText;
+    quantity = Number(quantity);
+    var updateQuant = quantity + 1;
+    quantityEl.innerHTML = `${updateQuant}`;
+
+    var grandParentElement = parentEl.parentElement;
+    var price = grandParentElement.querySelector(".price").innerHTML;
+    //  var number = price.replace(".", "");
+    price = Number(price);
+    //
+    // add price to the subtotal of order
+    subtotal += price;
+    //add the statetax to the sub total
+    total = subtotal * stateTax;
+    //add subtotal of item to total
+    total += subtotal;
+    //
+    var taxes = subtotal * stateTax;
+    //
+    if (delivery === true) {
+      total += deliveryFee;
+    }
+    document.querySelector(".subtotal").innerHTML = subtotal.toFixed(2);
+    document.querySelector(".taxes").innerHTML = taxes.toFixed(2);
+    document.querySelector(".total").innerHTML = total.toFixed(2);
+  } else if (element.classList.contains("removeitems")) {
+    var removedButt = event.target;
+    var parentEl = removedButt.parentElement.parentElement;
+    var quantityEl = parentEl.querySelector(".amountofitem");
+    var quantity = quantityEl.innerText;
+    quantity = Number(quantity);
+    var updateQuant = quantity - 1;
+    quantityEl.innerHTML = `${updateQuant}`;
+
+    var grandParentElement = parentEl.parentElement;
+    var price = grandParentElement.querySelector(".price").innerHTML;
+    //  var number = price.replace("$", "");
+    price = Number(price);
+    // add price to the subtotal of order
+    subtotal -= price;
+    //add the statetax to the sub total
+    total = subtotal * stateTax;
+    //add subtotal of item to total
+    total += subtotal;
+    //
+    var taxes = subtotal * stateTax;
+    //
+    if (delivery === true) {
+      total += deliveryFee;
+    }
+
+    document.querySelector(".subtotal").innerHTML = subtotal.toFixed(2);
+    document.querySelector(".taxes").innerHTML = taxes.toFixed(2);
+    document.querySelector(".total").innerHTML = total.toFixed(2);
+
+    if (updateQuant < 1) {
+      var see = removedButt.parentElement.parentElement.parentElement;
+      see.remove();
+    }
+  }
+}
+document.querySelector('.finalize-order').addEventListener('click',()=>{
+    var fOrder = document.querySelector('.placeorder-items');
+     var   finalOrders = fOrder.querySelectorAll('.order-list');
+    for(var i = 0; i<= finalOrders.length; i++){
+        var allorderitem = finalOrders[i].innerText;
+        var splititem = allorderitem.split(/\n\n/);
+        finalOrder.push(splititem);
+        finalOrder[i].pop();
+        console.log(finalOrder);
+    }
+})
+    //
     var parentEl = addBttns[i].parentElement;
     var menuItem = parentEl.querySelector('.price');
     let price = menuItem.innerHTML;
