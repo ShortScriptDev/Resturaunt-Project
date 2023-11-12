@@ -64,7 +64,6 @@ for(let i = 0; i < addBttns.length; i++){
           delivery = false;
         }
       });
-      
     document.querySelector(".addaddress").addEventListener("click", () => {
       var addToSummary = document.querySelector(".summary");
       var address = document.getElementById("delivery-address").value;
