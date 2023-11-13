@@ -248,11 +248,10 @@ function someListener(event) {
 document.querySelector(".finalize-order").addEventListener("click", () => {
 //  document.querySelector(".manage-order").style = "display: none";
   customerInfo = {};
-  var orderPlaced = [];
+ // var orderPlaced = [];
   var finalOr = {};
  // var test = {};
   var numOfOrders = 0;
-  var finalOrder = {0: {descr:'food', price:2.99, quantity:2}, 1: {descr:'food', price:2.99, quantity:2}};
   let name = document.querySelector(".nameadded");
   let number = document.querySelector(".numadded");
   let address = document.querySelector(".addressadded");
@@ -269,14 +268,14 @@ document.querySelector(".finalize-order").addEventListener("click", () => {
   //  orderPlaced[i].pop();
  //   var finalOrder = Object.assign({}, orderPlaced);
   }
-  console.log(typeof splititem[0])
+/*  console.log(typeof splititem[0])
   console.log(typeof splititem[1])
   console.log(typeof splititem[2])
   console.log(typeof finalOr[0].description)
   console.log(typeof finalOr[0].price)
   console.log(typeof finalOr[0].quantity)
   console.log(finalOr[0]);
-  console.log(test[0])
+  console.log(test[0])*/
 //  console.log(finalOr.i.descr)
   //finalOrder.orders.push(orderPlaced)
   //console.log(Object.assign({}, orderPlaced))
