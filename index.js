@@ -249,7 +249,7 @@ function someListener(event) {
 document.querySelector(".finalize-order").addEventListener("click", () => {
 //  document.querySelector(".manage-order").style = "display: none";
   customerInfo = {};
-  let orderPlaced = [];
+  var orderPlaced = [];
   let name = document.querySelector(".nameadded");
   let number = document.querySelector(".numadded");
   let address = document.querySelector(".addressadded");
