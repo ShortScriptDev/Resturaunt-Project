@@ -249,6 +249,7 @@ function someListener(event) {
 document.querySelector(".finalize-order").addEventListener("click", () => {
 //  document.querySelector(".manage-order").style = "display: none";
   customerInfo = {};
+  let orderPlaced = [love,happy];
   let name = document.querySelector(".nameadded");
   let number = document.querySelector(".numadded");
   let address = document.querySelector(".addressadded");
@@ -261,6 +262,7 @@ document.querySelector(".finalize-order").addEventListener("click", () => {
     finalOrder[i].pop();
   }
   alert(finalOrder);
+  alert(orderPlaced);
   if (name === null) {
     alert("Please add a name to your order to continue");
   } else {
