@@ -261,7 +261,6 @@ document.querySelector(".finalize-order").addEventListener("click", () => {
     finalOrder.push(splititem);
     finalOrder[i].pop();
   }
-  alert(finalOrder);
   alert(orderPlaced);
   if (name === null) {
     alert("Please add a name to your order to continue");
