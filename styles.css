@@ -1178,7 +1178,7 @@ footer {
       height: 100vh;
       overflow: scroll;
       background-color: #36454f;
-      color: white
+      color: white;
       }
   .orders, .order-titles{
       display: grid;
@@ -1223,5 +1223,4 @@ footer {
         row-gap: 2px;
         column-gap: 2px;
   }
-  
 }
