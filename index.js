@@ -261,6 +261,7 @@ document.querySelector(".finalize-order").addEventListener("click", () => {
     var allorderitem = finalOrders[i].innerText;
     var splititem = allorderitem.split(/\n\n/);
     finalOr[i] = {description: splititem[0], price: splititem[1], quantity: splititem[2]};
+    console.log(splititem);
     numOfOrders += 1;
    // orderPlaced.push(arr);
   //  orderPlaced[i].pop();
@@ -324,6 +325,7 @@ document.querySelector(".finalize-order").addEventListener("click", () => {
     document.querySelector('.deliveryfeeinfo').style = 'display:none';
     document.querySelector('.deliveryinfo').style = 'display:none;';  
   for(let i = 0; i < numOfOrders; i++){
+    alert(finalOr[i]);
     alert(finalOr[i].description);
     alert(finalOr[i].price);
     alert(finalOr[i].quantity);
