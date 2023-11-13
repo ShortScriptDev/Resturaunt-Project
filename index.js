@@ -251,7 +251,7 @@ document.querySelector(".finalize-order").addEventListener("click", () => {
   var orderPlaced = [];
   var finalOr = {};
   var numOfOrders = 0;
-  var finalOrder = {descr:'food', price:2.99, quantity:2};
+  var finalOrder = {0: {descr:'food', price:2.99, quantity:2}, 1: {descr:'food', price:2.99, quantity:2}};
   let name = document.querySelector(".nameadded");
   let number = document.querySelector(".numadded");
   let address = document.querySelector(".addressadded");
@@ -269,7 +269,8 @@ document.querySelector(".finalize-order").addEventListener("click", () => {
   //  orderPlaced[i].pop();
  //   var finalOrder = Object.assign({}, orderPlaced);
   }
-  console.log(finalOr[0])
+  console.log(finalOr)
+  console.log(finalOrder.descr)
 //  console.log(finalOr.i.descr)
   //finalOrder.orders.push(orderPlaced)
   //console.log(Object.assign({}, orderPlaced))
@@ -327,11 +328,10 @@ document.querySelector(".finalize-order").addEventListener("click", () => {
     document.querySelector('.deliveryfeeinfo').style = 'display:none';
     document.querySelector('.deliveryinfo').style = 'display:none;';  
   for(let i = 0; i < numOfOrders; i++){
-    let descr = finalOr[i].description;
     let item = document.createElement('div');
     item.classList.add('orders');
     let parentEl = document.querySelector('.finalorder-items');
-    item.innerHTML = `<p>${descr}</p><p>${finalOr[i].quantity}</p><p>$${finalOr[i].price}</p>`;
+    item.innerHTML = `<p>${finalOrder[0].descr}</p><p>${finalOr[i].quantity}</p><p>$${finalOr[i].price}</p>`;
     parentEl.append(item);
   }
   let currentDate = new Date().toJSON().slice(0, 10);
