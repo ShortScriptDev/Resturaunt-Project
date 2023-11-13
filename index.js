@@ -12,6 +12,7 @@ var i = 0;
 var itemsadded = [];
 var deliveryFee = 8.0;
 var delivery = false;
+var finalOrder = [];
 var delivAdd;
 var customerInfo = {};
 var addBttns = document.getElementsByClassName("additem");
@@ -248,7 +249,6 @@ function someListener(event) {
 document.querySelector(".finalize-order").addEventListener("click", () => {
 //  document.querySelector(".manage-order").style = "display: none";
   let customerInfo = {};
-  let finalOrder = [];
   let name = document.querySelector(".nameadded");
   let number = document.querySelector(".numadded");
   let address = document.querySelector(".addressadded");
