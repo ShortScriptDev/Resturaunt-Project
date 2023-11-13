@@ -327,10 +327,11 @@ document.querySelector(".finalize-order").addEventListener("click", () => {
     document.querySelector('.deliveryfeeinfo').style = 'display:none';
     document.querySelector('.deliveryinfo').style = 'display:none;';  
   for(let i = 0; i < numOfOrders; i++){
+    let descr = finalOr[i].description;
     let item = document.createElement('div');
     item.classList.add('orders');
     let parentEl = document.querySelector('.finalorder-items');
-    item.innerHTML = `<p>${finalOr[i].description}</p><p>${finalOr[i].quantity}</p><p>$${finalOr[i].price}</p>`;
+    item.innerHTML = `<p>${descr}</p><p>${finalOr[i].quantity}</p><p>$${finalOr[i].price}</p>`;
     parentEl.append(item);
   }
   let currentDate = new Date().toJSON().slice(0, 10);
