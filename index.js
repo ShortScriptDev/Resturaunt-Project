@@ -298,7 +298,7 @@ document.querySelector(".finalize-order").addEventListener("click", () => {
       document.querySelector('.deliveryinfo').style = 'display:block; margin-left:3%; font-weight: bold';  
       document.querySelector('.order-total').innerHTML = `$${orderTotal}`;
       document.querySelector('.order-placed').style = 'display:block';
-      for(let i = 0; i < numOfOrders.length; i++){
+      for(let i = 0; i < numOfOrders; i++){
         console.log('DelivYes')
         let item = document.createElement('div');
         item.classList.add('orders');
@@ -324,6 +324,7 @@ document.querySelector(".finalize-order").addEventListener("click", () => {
     document.querySelector('.deliveryfeeinfo').style = 'display:none';
     document.querySelector('.deliveryinfo').style = 'display:none;';  
   for(let i = 0; i < numOfOrders; i++){
+    alert(finalOr[i].descr);
     let item = document.createElement('div');
     item.classList.add('orders');
     let parentEl = document.querySelector('.finalorder-items');
