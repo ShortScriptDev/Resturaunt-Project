@@ -250,7 +250,7 @@ document.querySelector(".finalize-order").addEventListener("click", () => {
   customerInfo = {};
   var orderPlaced = [];
   var finalOr = {};
-  var test = {};
+ // var test = {};
   var numOfOrders = 0;
   var finalOrder = {0: {descr:'food', price:2.99, quantity:2}, 1: {descr:'food', price:2.99, quantity:2}};
   let name = document.querySelector(".nameadded");
@@ -258,11 +258,11 @@ document.querySelector(".finalize-order").addEventListener("click", () => {
   let address = document.querySelector(".addressadded");
   var fOrder = document.querySelector(".placeorder-items");
   var finalOrders = fOrder.querySelectorAll(".order-list");
-  for (var i = 0; i < finalOrders.length; i++) {
+  for (let i = 0; i < finalOrders.length; i++) {
     let allorderitem = finalOrders[i].innerText;
     let splitItem = allorderitem.split(/\n\n/);
     //an issue with splititems
-    test[i] = {description: "somefood" , price: 'p', quantity: 'quant'};
+    //test[i] = {description: "somefood" , price: 'p', quantity: 'quant'};
     finalOr[i] = {description: splitItem[0] , price: splitItem[1], quantity: splitItem[2]};
     numOfOrders += 1;
    // orderPlaced.push(arr);
