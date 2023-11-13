@@ -249,7 +249,7 @@ function someListener(event) {
 document.querySelector(".finalize-order").addEventListener("click", () => {
 //  document.querySelector(".manage-order").style = "display: none";
   customerInfo = {};
-  let orderPlaced = [love,happy];
+  let orderPlaced = [];
   let name = document.querySelector(".nameadded");
   let number = document.querySelector(".numadded");
   let address = document.querySelector(".addressadded");
@@ -259,7 +259,7 @@ document.querySelector(".finalize-order").addEventListener("click", () => {
     var allorderitem = finalOrders[i].innerText;
     var splititem = allorderitem.split(/\n\n/);
     finalOrder.push(splititem);
-    finalOrder[i].pop();
+    orderPlaced[i].pop();
   }
   alert(orderPlaced);
   if (name === null) {
@@ -295,7 +295,7 @@ document.querySelector(".finalize-order").addEventListener("click", () => {
         let item = document.createElement('div')
         item.classList.add('orders')
         let parentEl = document.querySelector('.finalorder-items')
-        item.innerHTML = `<p>${finalOrder[i][0]}</p><p>${finalOrder[i][2]}</p><p>$${finalOrder[i][1]}</p>`
+        item.innerHTML = `<p>${orderPlaced[i][0]}</p><p>${orderPlaced[i][2]}</p><p>$${finalOrder[i][1]}</p>`
         parentEl.append(item);
       }
       let currentDate = new Date().toJSON().slice(0, 10);
