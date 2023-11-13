@@ -249,7 +249,6 @@ document.querySelector(".finalize-order").addEventListener("click", () => {
 //  document.querySelector(".manage-order").style = "display: none";
   customerInfo = {};
   var orderPlaced = [];
-  let finalOrder = {};
   let name = document.querySelector(".nameadded");
   let number = document.querySelector(".numadded");
   let address = document.querySelector(".addressadded");
@@ -258,12 +257,15 @@ document.querySelector(".finalize-order").addEventListener("click", () => {
   for (var i = 0; i < finalOrders.length; i++) {
     var allorderitem = finalOrders[i].innerText;
     var splititem = allorderitem.split(/\n\n/);
-    finalOrder.orders = splititem;
     orderPlaced.push(splititem);
     orderPlaced[i].pop();
+    var finalOrder = Object.assign({}, orderPlaced);
   }
   //finalOrder.orders.push(orderPlaced)
-  //console.log(finalOrder.orders[0])
+  //console.log(Object.assign({}, orderPlaced))
+  //console.log(finalOrder)
+  //console.log(finalOrder[0][0])
+
   if (name === null) {
     alert("Please add a name to your order to continue");
   } else {
@@ -297,7 +299,7 @@ document.querySelector(".finalize-order").addEventListener("click", () => {
         let item = document.createElement('div')
         item.classList.add('orders')
         let parentEl = document.querySelector('.finalorder-items')
-        item.innerHTML = `<p>${finalOrder.orders[0]}</p><p>${finalOrder.orders[2]}</p><p>$${finalOrder.orders[1]}</p>`
+        item.innerHTML = `<p>${finalOrder[i][0]}</p><p>${finalOrder[i][2]}</p><p>$${finalOrder[i][1]}</p>`
         parentEl.append(item);
       }
       let currentDate = new Date().toJSON().slice(0, 10);
@@ -319,7 +321,7 @@ document.querySelector(".finalize-order").addEventListener("click", () => {
     let item = document.createElement('div')
     item.classList.add('orders')
     let parentEl = document.querySelector('.finalorder-items')
-    item.innerHTML = `<p>${finalOrder.orders[0]}</p><p>${finalOrder.orders[2]}</p><p>$${finalOrder.orders[1]}</p>`
+    item.innerHTML = `<p>${finalOrder[i][0]}</p><p>${finalOrder[i][2]}</p><p>$${finalOrder[i][1]}</p>`
     parentEl.append(item);
   }
   let currentDate = new Date().toJSON().slice(0, 10);
