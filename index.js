@@ -12,7 +12,6 @@ var i = 0;
 var itemsadded = [];
 var deliveryFee = 8.0;
 var delivery = false;
-var finalOrder = [];
 var delivAdd;
 var customerInfo = {};
 var addBttns = document.getElementsByClassName("additem");
