@@ -373,20 +373,20 @@
         </div>
       </section>
       <div class="order-placed" style="display:none"> 
-        <p style="text-align: center; margin-top:20px;font-size: 20px;">Amazon Rainforest Resturaunt</p>
-        <hr style="margin-top:20px; margin-bottom:20px; border-color:#fc814a"/>
+        <div style="width:100%;text-align: center;margin-top:20px"><img style="width:225px;"src="RainForest.png"/></div>
+        <hr style=" border-color:#fc814a; width:80%; margin:auto; margin-top:10px; margin-bottom:20px;"/>
         <div class="times">
-          <p>Today's Date: <span class="today">11/12/2023</span></p>
-          <p>Current Time: <span class="time">05:24pm</span></p>
+          <p style="font-weight: bold;">Today's Date: <span class="today" style="font-weight: normal;">11/12/2023</span></p>
+          <p style="font-weight: bold;">Current Time: <span class="time" style="font-weight: normal;">05:24pm</span></p>
         </div>
-        <p style="text-align: center">Store Location: <span>1599 S Las Vegas blvd</span></p>
-        <p style="text-align: center">Store Phone Number: 800 220 4004</p>
-        <hr style="margin-top:10px; margin-bottom:10px; border-color:#fc814a"/>
-        <p style="margin-left:3%">Customer Name: <span class="customer-name"></span></p>
-        <p style="margin-left:3%">Customer Phone Number: <span class="customer-number"></span></p>
-        <p class="deliveryinfo" style="display:none; margin-left:3%">Customer Delivery Address: <span class="customer-address"></span></p>
+        <p style="font-weight: bold; text-align: center">Store Location: <span style="font-weight: normal;">1599 S Las Vegas blvd</span></p>
+        <p style="font-weight: bold; text-align: center">Store Phone Number: <span style="font-weight: normal;">800 220 4004</span></p>
+        <hr style="border-color:#fc814a; width:95%; margin:auto; margin-top:10px; margin-bottom:10px;"/>
+        <p style="font-weight: bold; margin-left:3%">Customer Name: <span class="customer-name" style="font-weight: normal;"></span></p>
+        <p style="font-weight: bold; margin-left:3%">Customer Phone Number: <span class="customer-number" style="font-weight: normal;"></span></p>
+        <p class="deliveryinfo" style="display:none; margin-left:3%; font-weight: bold;">Customer Delivery Address: <span class="customer-address" style="font-weight: normal;"></span></p>
         <div class="orderrows">
-          <p>Order:</p>
+          <p style="font-weight: bold;">Order:</p>
           <div class="order-titles">
             <p>Description</p>
             <p>Amount of Order</p>
@@ -399,19 +399,21 @@
         <div class="edit-totals">
           <button class="edit-order">Edit Order</button>
           <div class="totals">
-            <p>Subtotal: <span class="order-subtotal"></span></p>
-          <p>Taxes: <span class="order-taxes"></span></p>
-          <p class="deliveryfeeinfo"style="display:none">Delivery Fee: <span class="order-deliveryfee"></span></p>
-          <p>Total: <span class="order-total"></span></p>
+            <p style="font-weight: bold;">Subtotal: <span class="order-subtotal" style="font-weight: normal;"></span></p>
+          <p style="font-weight: bold;">Taxes: <span class="order-taxes" style="font-weight: normal;"></span></p>
+          <p class="deliveryfeeinfo"style="display:none; font-weight: bold">Delivery Fee: <span class="order-deliveryfee" style="font-weight: normal;"></span></p>
+          <p style="font-weight: bold;">Total: <span class="order-total" style="font-weight: normal;"></span></p>
           </div>
         </div>
-        <div style="width:100%; text-align: center;"><h3>Finish your payment with a debit or credit card.</h3></div>
+        <div style="width:100%; text-align: center; margin-top: 10px; margin-bottom: 10px;"><h3>Finish your payment with a debit or credit card.</h3></div>
+        <!-- add form for credit card entry via API payment processor-->
         <div class="cardinfo">
-          <input placeholder="name on card"/>
-          <input placeholder="card number"/>
-          <input placeholder="expiration date"/>
-          <input placeholder="cvv"/>
+          <input style="width: 100%;" placeholder="name on card"/>
+          <input style="width: 100%;" placeholder="card number"/>
+          <input style="width: 100%;" placeholder="expiration date"/>
+          <input style="width: 100%;" placeholder="cvv"/>
          </div>
+         <!-- This information will be processed as a order when the pay button is clicked-->
          <div style="width:100%; text-align: center; margin-bottom:20px"><button class="pay"style="width: 80px;margin: 10px;cursor: pointer;">Pay</button></div>
          <div class="thankyou" style="display:none"><p>Thank You For Your Order. <br> Your order is being prepared. <br> Please allow 10-20 minutes for pickup and 40 minutes- 1:30hr for Delivery</p></div>
       </div>

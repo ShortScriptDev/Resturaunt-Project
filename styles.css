@@ -553,7 +553,8 @@ footer {
     width: 50%;
     height: fit-content;
     overflow: auto;
-    background-color:white;
+    background-color: #36454f;
+    color: white
 }
 .orders, .order-titles{
     display: grid;
@@ -1176,8 +1177,9 @@ footer {
       width: 90%;
       height: 100vh;
       overflow: scroll;
-      background-color:lightgreen;
-  }
+      background-color: #36454f;
+      color: white
+      }
   .orders, .order-titles{
       display: grid;
       grid-template-columns: 2fr 1fr .5fr;
@@ -1191,10 +1193,10 @@ footer {
   }
   .orderrows{
       display: grid;
-      grid-template-columns: .5fr 3fr;
+      grid-template-columns: .6fr 3fr;
       margin-top:10px;
       margin-bottom:10px;
-      margin-left: 5%;
+      margin-left: 2%;
   }
   .totals{
       margin-right: 5%;
@@ -1214,10 +1216,10 @@ footer {
         display: grid;
         grid-template-columns: 1fr 1fr;
         margin-top: 3%;
-        margin-left:40%;
-        width: 90%;
+        margin-left:0;
+        width: 95%;
         height:fit-content;
-        margin: 0;
+        margin: auto;
         row-gap: 2px;
         column-gap: 2px;
   }
