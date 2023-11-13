@@ -263,13 +263,13 @@ document.querySelector(".finalize-order").addEventListener("click", () => {
     let descr = splititem[0];
     let p = splititem[1];
     let quant = splititem[2];
-    finalOr[i] = {description: descr, price: p, quantity: quant};
+    finalOr[i] = {description: 'somefood', price: 'p', quantity: 'quant'};
     numOfOrders += 1;
    // orderPlaced.push(arr);
   //  orderPlaced[i].pop();
  //   var finalOrder = Object.assign({}, orderPlaced);
   }
-  console.log(finalOr)
+  console.log(splititem)
   console.log(finalOrder.descr)
 //  console.log(finalOr.i.descr)
   //finalOrder.orders.push(orderPlaced)
@@ -331,7 +331,7 @@ document.querySelector(".finalize-order").addEventListener("click", () => {
     let item = document.createElement('div');
     item.classList.add('orders');
     let parentEl = document.querySelector('.finalorder-items');
-    item.innerHTML = `<p>${finalOrder[0].descr}</p><p>${finalOr[i].quantity}</p><p>$${finalOr[i].price}</p>`;
+    item.innerHTML = `<p>${finalOr[0].description}</p><p>${finalOr[i].quantity}</p><p>$${finalOr[i].price}</p>`;
     parentEl.append(item);
   }
   let currentDate = new Date().toJSON().slice(0, 10);
