@@ -12,7 +12,6 @@ var i = 0;
 var itemsadded = [];
 var deliveryFee = 8.0;
 var delivery = false;
-var finalOrder = [];
 var delivAdd;
 var customerInfo = {};
 var addBttns = document.getElementsByClassName("additem");
@@ -250,6 +249,7 @@ document.querySelector(".finalize-order").addEventListener("click", () => {
 //  document.querySelector(".manage-order").style = "display: none";
   customerInfo = {};
   var orderPlaced = [];
+  let finalOrder = {};
   let name = document.querySelector(".nameadded");
   let number = document.querySelector(".numadded");
   let address = document.querySelector(".addressadded");
@@ -258,9 +258,12 @@ document.querySelector(".finalize-order").addEventListener("click", () => {
   for (var i = 0; i < finalOrders.length; i++) {
     var allorderitem = finalOrders[i].innerText;
     var splititem = allorderitem.split(/\n\n/);
+    finalOrder.orders = splititem;
     orderPlaced.push(splititem);
     orderPlaced[i].pop();
   }
+  //finalOrder.orders.push(orderPlaced)
+  //console.log(finalOrder.orders[0])
   if (name === null) {
     alert("Please add a name to your order to continue");
   } else {
@@ -290,11 +293,11 @@ document.querySelector(".finalize-order").addEventListener("click", () => {
       document.querySelector('.deliveryinfo').style = 'display:block; margin-left:3%; font-weight: bold';  
       document.querySelector('.order-total').innerHTML = `$${orderTotal}`;
       document.querySelector('.order-placed').style = 'display:block';
-      for(let i = 0; i < finalOrder.length; i++){
+      for(let i = 0; i < orderPlaced.length; i++){
         let item = document.createElement('div')
         item.classList.add('orders')
         let parentEl = document.querySelector('.finalorder-items')
-        item.innerHTML = `<p>${orderPlaced[i][0]}</p><p>${orderPlaced[i][2]}</p><p>$${orderPlaced[i][1]}</p>`
+        item.innerHTML = `<p>${finalOrder.orders[0]}</p><p>${finalOrder.orders[2]}</p><p>$${finalOrder.orders[1]}</p>`
         parentEl.append(item);
       }
       let currentDate = new Date().toJSON().slice(0, 10);
@@ -312,11 +315,11 @@ document.querySelector(".finalize-order").addEventListener("click", () => {
     document.querySelector('.order-placed').style = 'display:block';
     document.querySelector('.deliveryfeeinfo').style = 'display:none';
     document.querySelector('.deliveryinfo').style = 'display:none;';  
-  for(let i = 0; i < finalOrder.length; i++){
+  for(let i = 0; i < orderPlaced.length; i++){
     let item = document.createElement('div')
     item.classList.add('orders')
     let parentEl = document.querySelector('.finalorder-items')
-    item.innerHTML = `<p>${finalOrder[i][0]}</p><p>${finalOrder[i][2]}</p><p>$${finalOrder[i][1]}</p>`
+    item.innerHTML = `<p>${finalOrder.orders[0]}</p><p>${finalOrder.orders[2]}</p><p>$${finalOrder.orders[1]}</p>`
     parentEl.append(item);
   }
   let currentDate = new Date().toJSON().slice(0, 10);
