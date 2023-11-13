@@ -307,7 +307,6 @@ document.querySelector(".finalize-order").addEventListener("click", () => {
       document.querySelector('.order-subtotal').innerHTML = `$${orderSubTotal}`;
       document.querySelector('.order-taxes').innerHTML = `$${orderTaxes}`;
       document.querySelector('.order-deliveryfee').innerHTML = `$${deliveryFee}.00`;
-      document.querySelector(".manage-order").style = "visibility: hidden";
     }
   }
   if(document.querySelector(".delivery-fee") === null && name !== null && number !== null){
@@ -332,8 +331,6 @@ document.querySelector(".finalize-order").addEventListener("click", () => {
   document.querySelector('.order-taxes').innerHTML = `$${orderTaxes}`;
   document.querySelector('.order-deliveryfee').innerHTML = `$${deliveryFee}.00`;
   document.querySelector('.order-total').innerHTML = `$${orderTotal}`;
-  document.querySelector(".manage-order").style = "visibility: hidden";
-
   }
   //assign each item in finalOrder to api order processor backend
   //assign customerInfo to api order processor backend
