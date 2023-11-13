@@ -15,57 +15,59 @@ var delivery = false;
 var finalOrder = [];
 var delivAdd;
 var customerInfo = {};
-var addBttns = document.getElementsByClassName('additem');
-for(let i = 0; i < addBttns.length; i++){
-  addBttns[i].addEventListener("click", ()=>{
+var addBttns = document.getElementsByClassName("additem");
+for (let i = 0; i < addBttns.length; i++) {
+  addBttns[i].addEventListener("click", () => {
     // eventlistener for order started
     var orderBegin = document.querySelector(".placeorder-bttn");
-    orderBegin.innerHTML = '<button class="orderstarted">MANAGE ORDER</button>'; 
+    orderBegin.innerHTML = '<button class="orderstarted">MANAGE ORDER</button>';
     document.querySelector(".orderstarted").addEventListener("click", () => {
       document.querySelector(".manage-order").style = "visibility: visible";
-    }) 
-    document.querySelector(".bi-x-circle-fill").addEventListener("click", () => {
-      document.querySelector(".manage-order").style = "display: none";
     });
+    document
+      .querySelector(".bi-x-circle-fill")
+      .addEventListener("click", () => {
+        document.querySelector(".manage-order").style = "display: none";
+      });
     document.querySelector(".delivery").addEventListener("click", () => {
       document.querySelector(".selected").classList.remove("selected");
       document.querySelector(".delivery").classList.add("selected");
-   if (document.querySelector('.delivery-fee') === null){
-    document.querySelector('.address').style = "visibility: visible";
-    var addDeliveryFee = document.createElement("div");
-    addDeliveryFee.classList.add("orderdetails");
-    addDeliveryFee.classList.add("delivery-fee");
-    addDeliveryFee.innerHTML = `<p>Delivery Fee</p><p>${deliveryFee}</p>`;
-    total += deliveryFee;
-    document.querySelector(".total").innerHTML = total.toFixed(2);
-    document.querySelector(".summary").append(addDeliveryFee);
-    delivery = true;
-    document.querySelector(".pickup").addEventListener("click", () => {
-      document.querySelector(".selected").classList.remove("selected");
-      document.querySelector(".pickup").classList.add("selected");
-      document.querySelector('.address').style = "display: none";
-      var deliveryAddEl = document.querySelector(".delivery-address");
-      var deliveryFeeEl = document.querySelector(".delivery-fee");
-      if (typeof deliveryAddEl != "undefined" && deliveryAddEl != null) {
-        document.querySelector(".delivery-address").remove();
-        document.getElementById("delivery-address").value = "";
-        var addAddbutt = document.querySelector(".addaddress");
-        addAddbutt.style = "background-color:lightgray";
-        addAddbutt.innerText = "Add Address";
-      }
-      if (typeof deliveryFeeEl != "undefined" && deliveryFeeEl != null) {
-        document.querySelector(".delivery-fee").remove();
-        total -= deliveryFee;
+      if (document.querySelector(".delivery-fee") === null) {
+        document.querySelector(".address").style = "visibility: visible";
+        var addDeliveryFee = document.createElement("div");
+        addDeliveryFee.classList.add("orderdetails");
+        addDeliveryFee.classList.add("delivery-fee");
+        addDeliveryFee.innerHTML = `<p>Delivery Fee</p><p>${deliveryFee}</p>`;
+        total += deliveryFee;
         document.querySelector(".total").innerHTML = total.toFixed(2);
-        delivery = false;
+        document.querySelector(".summary").append(addDeliveryFee);
+        delivery = true;
+        document.querySelector(".pickup").addEventListener("click", () => {
+          document.querySelector(".selected").classList.remove("selected");
+          document.querySelector(".pickup").classList.add("selected");
+          document.querySelector(".address").style = "display: none";
+          var deliveryAddEl = document.querySelector(".delivery-address");
+          var deliveryFeeEl = document.querySelector(".delivery-fee");
+          if (typeof deliveryAddEl != "undefined" && deliveryAddEl != null) {
+            document.querySelector(".delivery-address").remove();
+            document.getElementById("delivery-address").value = "";
+            var addAddbutt = document.querySelector(".addaddress");
+            addAddbutt.style = "background-color:lightgray";
+            addAddbutt.innerText = "Add Address";
+          }
+          if (typeof deliveryFeeEl != "undefined" && deliveryFeeEl != null) {
+            document.querySelector(".delivery-fee").remove();
+            total -= deliveryFee;
+            document.querySelector(".total").innerHTML = total.toFixed(2);
+            delivery = false;
+          }
+        });
       }
+      //end of delivery added
     });
-   }
-    //end of delivery added 
-    });
-  
+
     var parentEl = addBttns[i].parentElement;
-    var menuItem = parentEl.querySelector('.price');
+    var menuItem = parentEl.querySelector(".price");
     let price = menuItem.innerHTML;
     price = price.replace("$", "");
     price = Number(price);
@@ -75,8 +77,8 @@ for(let i = 0; i < addBttns.length; i++){
     document.querySelector(".subtotal").innerHTML = subtotal.toFixed(2);
     document.querySelector(".taxes").innerHTML = taxes.toFixed(2);
     document.querySelector(".total").innerHTML = total.toFixed(2);
-    var itemTitle = parentEl.querySelector('.title');
-    let title = itemTitle.innerHTML; 
+    var itemTitle = parentEl.querySelector(".title");
+    let title = itemTitle.innerHTML;
     var orderItems = {};
     orderItems.title = title;
     orderItems.price = price;
@@ -89,7 +91,7 @@ for(let i = 0; i < addBttns.length; i++){
       quantity = Number(quantity);
       let updateQuant = quantity + 1;
       itemEl.innerHTML = `${updateQuant}`;
-        } else {
+    } else {
       let orderLists = document.querySelector(".placeorder-items");
       let placeOrderItem = document.createElement("div");
       placeOrderItem.innerHTML = `
@@ -112,7 +114,7 @@ for(let i = 0; i < addBttns.length; i++){
     //end of click eventlistener for each button.
   });
   //end of for loop for each button
-};
+}
 document.querySelector(".addaddress").addEventListener("click", () => {
   var addToSummary = document.querySelector(".summary");
   var address = document.getElementById("delivery-address").value;
@@ -120,7 +122,6 @@ document.querySelector(".addaddress").addEventListener("click", () => {
   addAddress.classList.add("orderdetails");
   addAddress.classList.add("delivery-address");
   var element = document.querySelector(".delivery-address");
-  //
 
   if (typeof element != "undefined" && element != null) {
     // Exists.
@@ -245,54 +246,103 @@ function someListener(event) {
     }
   }
 }
-document.querySelector('.finalize-order').addEventListener('click',()=>{
+document.querySelector(".finalize-order").addEventListener("click", () => {
+//  document.querySelector(".manage-order").style = "display: none";
   let customerInfo = {};
   let finalOrder = [];
-  let name = document.querySelector('.nameadded');
- let number = document.querySelector('.numadded');
- let address = document.querySelector('.addressadded')
-  var fOrder = document.querySelector('.placeorder-items');
-   var   finalOrders = fOrder.querySelectorAll('.order-list');
-  for(var i = 0; i < finalOrders.length; i++){
-      var allorderitem = finalOrders[i].innerText;
+  let name = document.querySelector(".nameadded");
+  let number = document.querySelector(".numadded");
+  let address = document.querySelector(".addressadded");
+  var fOrder = document.querySelector(".placeorder-items");
+  var finalOrders = fOrder.querySelectorAll(".order-list");
+  for (var i = 0; i < finalOrders.length; i++) {
+    var allorderitem = finalOrders[i].innerText;
     var splititem = allorderitem.split(/\n\n/);
-     finalOrder.push(splititem);
-     finalOrder[i].pop();
+    finalOrder.push(splititem);
+    finalOrder[i].pop();
   }
-  if (name === null){
-    alert('Please add a name to your order');
-  }else {
+
+  if (name === null) {
+    alert("Please add a name to your order to continue");
+  } else {
     name = name.innerText;
     customerInfo.name = name;
+    document.querySelector('.customer-name').innerHTML = customerInfo.name;
   }
-  if (number === null){
-    alert('Please add a number to your order')
-  }else{
+  if (number === null) {
+    alert("Please add a number to your order to continue");
+  } else {
     number = number.innerText;
     customerInfo.number = number;
+    document.querySelector('.customer-number').innerHTML = customerInfo.number;
   }
-  if (document.querySelector('.delivery-fee') !== null){
-    if (address === null){
-      alert('Please add an address to your order')
-    }else{
+  if (document.querySelector(".delivery-fee") !== null) {
+    if (address === null) {
+      alert("Please add an address to your order");
+    } else {
+      let orderTotal = document.querySelector(".total").innerHTML;
+      orderTotal += deliveryFee;
+      orderTotal = Number(orderTotal);
+      orderTotal = orderTotal.toFixed(2);
       address = address.innerText;
       customerInfo.address = address;
+      document.querySelector('.customer-address').innerHTML = customerInfo.address;
+      document.querySelector('.deliveryfeeinfo').style = 'display:block';
+      document.querySelector('.deliveryinfo').style = 'display:block; margin-left:3%';  
+      document.querySelector('.order-total').innerHTML = `$${orderTotal}`;
+      document.querySelector('.order-placed').style = 'display:block';
+      for(let i = 0; i < finalOrder.length; i++){
+        let item = document.createElement('div')
+        item.classList.add('orders')
+        let parentEl = document.querySelector('.finalorder-items')
+        item.innerHTML = `<p>${finalOrder[i][0]}</p><p>${finalOrder[i][2]}</p><p>$${finalOrder[i][1]}</p>`
+        parentEl.append(item);
+      }
+      let currentDate = new Date().toJSON().slice(0, 10);
+      let currentTime = new Date().toJSON().slice(11, 19);
+      document.querySelector('.today').innerHTML = currentDate;
+      document.querySelector('.time').innerHTML = currentTime;  
+      let orderSubTotal = document.querySelector(".subtotal").innerHTML;
+      let orderTaxes = document.querySelector(".taxes").innerHTML; 
+      document.querySelector('.order-subtotal').innerHTML = `$${orderSubTotal}`;
+      document.querySelector('.order-taxes').innerHTML = `$${orderTaxes}`;
+      document.querySelector('.order-deliveryfee').innerHTML = `$${deliveryFee}.00`;
     }
   }
-  /*
-  <div> 
-  <p>Order for ${customerInfo.name}</p>
-  <p>Phone number for customer: ${customerInfo.number}</p>
-  <p>Delivery Address: ${customerInfo.address}</p>
-  <div><p>Order: ${finalOrder[i]}</p></div>
-  <p>Subtotal: ${subtotal}</p>
-  <p>Taxes: ${taxes}</p>
-  <p>Delivery Fee: ${deliveryFee}</p>
-  <p>Total: ${total}</p>
-  <div></div>
-</div>*/
+  if(document.querySelector(".delivery-fee") === null && name !== null && number !== null){
+    document.querySelector('.order-placed').style = 'display:block';
+    document.querySelector('.deliveryfeeinfo').style = 'display:none';
+    document.querySelector('.deliveryinfo').style = 'display:none;';  
+  for(let i = 0; i < finalOrder.length; i++){
+    let item = document.createElement('div')
+    item.classList.add('orders')
+    let parentEl = document.querySelector('.finalorder-items')
+    item.innerHTML = `<p>${finalOrder[i][0]}</p><p>${finalOrder[i][2]}</p><p>${finalOrder[i][1]}</p>`
+    parentEl.append(item);
+  }
+  let currentDate = new Date().toJSON().slice(0, 10);
+  let currentTime = new Date().toJSON().slice(11, 19);
+  document.querySelector('.today').innerHTML = currentDate;
+  document.querySelector('.time').innerHTML = currentTime;  
+  let orderSubTotal = document.querySelector(".subtotal").innerHTML;
+  let orderTaxes = document.querySelector(".taxes").innerHTML; 
+  let orderTotal = document.querySelector(".total").innerHTML;
+  document.querySelector('.order-subtotal').innerHTML = `$${orderSubTotal}`;
+  document.querySelector('.order-taxes').innerHTML = `$${orderTaxes}`;
+  document.querySelector('.order-deliveryfee').innerHTML = `$${deliveryFee}.00`;
+  document.querySelector('.order-total').innerHTML = `$${orderTotal}`;
+  }
   //assign each item in finalOrder to api order processor backend
   //assign customerInfo to api order processor backend
+});
+document.querySelector('.edit-order').addEventListener('click',()=>{
+  document.querySelector(".manage-order").style = "visibility: visible";
+  document.querySelector('.order-placed').style = 'display:none';
+  let parentEl = document.querySelector('.finalorder-items');
+  parentEl.innerHTML = '';
+})
+document.querySelector('.pay').addEventListener('click',()=>{
+  document.querySelector('.thankyou').style = "display:block";
 })
 
 //add event listener for start order *
