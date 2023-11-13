@@ -324,7 +324,9 @@ document.querySelector(".finalize-order").addEventListener("click", () => {
     document.querySelector('.deliveryfeeinfo').style = 'display:none';
     document.querySelector('.deliveryinfo').style = 'display:none;';  
   for(let i = 0; i < numOfOrders; i++){
-    alert(finalOr[0].description);
+    alert(finalOr[i].description);
+    alert(finalOr[i].price);
+    alert(finalOr[i].quantity);
     let item = document.createElement('div');
     item.classList.add('orders');
     let parentEl = document.querySelector('.finalorder-items');
