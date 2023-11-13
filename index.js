@@ -250,6 +250,7 @@ document.querySelector(".finalize-order").addEventListener("click", () => {
   customerInfo = {};
   var orderPlaced = [];
   var finalOr = {};
+  var numOfOrders = 0;
   var finalOrder = {descr:'food', price:2.99, quantity:2};
   let name = document.querySelector(".nameadded");
   let number = document.querySelector(".numadded");
@@ -260,13 +261,13 @@ document.querySelector(".finalize-order").addEventListener("click", () => {
     var allorderitem = finalOrders[i].innerText;
     var splititem = allorderitem.split(/\n\n/);
     finalOr[i] = {descr: splititem[0], price: splititem[1], quantity: splititem[2]};
+    numOfOrders += 1;
    // orderPlaced.push(arr);
   //  orderPlaced[i].pop();
  //   var finalOrder = Object.assign({}, orderPlaced);
   }
   //finalOrder.orders.push(orderPlaced)
   //console.log(Object.assign({}, orderPlaced))
-   console.log(finalOr[0].descr)
   //console.log(finalOrder[0][0])
   if (name === null) {
     alert("Please add a name to your order to continue");
@@ -297,11 +298,14 @@ document.querySelector(".finalize-order").addEventListener("click", () => {
       document.querySelector('.deliveryinfo').style = 'display:block; margin-left:3%; font-weight: bold';  
       document.querySelector('.order-total').innerHTML = `$${orderTotal}`;
       document.querySelector('.order-placed').style = 'display:block';
-      for(let i = 0; i < orderPlaced.length; i++){
-        let item = document.createElement('div')
-        item.classList.add('orders')
-        let parentEl = document.querySelector('.finalorder-items')
-        item.innerHTML = `<p>${orderPlaced[i].descr}</p><p>${orderPlaced[i].quant}</p><p>$${orderPlaced[i].price}</p>`
+      for(let i = 0; i < numOfOrders.length; i++){
+        console.log('DelivYes')
+        let item = document.createElement('div');
+        item.classList.add('orders');
+        let parentEl = document.querySelector('.finalorder-items');
+        item.innerHTML = `<p>${finalOr[i].descr}</p><p>${finalOr[i].quantity}</p><p>$${finalOr[i].price}</p>`;
+        console.log(finalOr[i].descr);
+        console.log(finalOr);
         parentEl.append(item);
       }
       let currentDate = new Date().toJSON().slice(0, 10);
@@ -319,11 +323,11 @@ document.querySelector(".finalize-order").addEventListener("click", () => {
     document.querySelector('.order-placed').style = 'display:block';
     document.querySelector('.deliveryfeeinfo').style = 'display:none';
     document.querySelector('.deliveryinfo').style = 'display:none;';  
-  for(let i = 0; i < orderPlaced.length; i++){
-    let item = document.createElement('div')
-    item.classList.add('orders')
-    let parentEl = document.querySelector('.finalorder-items')
-    item.innerHTML = `<p>${finalOr[i]}</p><p>${finalOr[i].quantity}</p><p>$${finalOr[i].price}</p>`
+  for(let i = 0; i < numOfOrders; i++){
+    let item = document.createElement('div');
+    item.classList.add('orders');
+    let parentEl = document.querySelector('.finalorder-items');
+    item.innerHTML = `<p>${finalOr[i].descr}</p><p>${finalOr[i].quantity}</p><p>$${finalOr[i].price}</p>`;
     parentEl.append(item);
   }
   let currentDate = new Date().toJSON().slice(0, 10);
