@@ -266,7 +266,7 @@ document.querySelector(".finalize-order").addEventListener("click", () => {
   }
   //finalOrder.orders.push(orderPlaced)
   //console.log(Object.assign({}, orderPlaced))
-  // console.log(finalOr[0].descr)
+   console.log(finalOr[0].descr)
   //console.log(finalOrder[0][0])
   if (name === null) {
     alert("Please add a name to your order to continue");
@@ -323,7 +323,7 @@ document.querySelector(".finalize-order").addEventListener("click", () => {
     let item = document.createElement('div')
     item.classList.add('orders')
     let parentEl = document.querySelector('.finalorder-items')
-    item.innerHTML = `<p>${finalOr[i].descr}</p><p>${finalOr[i].quantity}</p><p>$${finalOr[i].price}</p>`
+    item.innerHTML = `<p>${finalOr[i]}</p><p>${finalOr[i].quantity}</p><p>$${finalOr[i].price}</p>`
     parentEl.append(item);
   }
   let currentDate = new Date().toJSON().slice(0, 10);
