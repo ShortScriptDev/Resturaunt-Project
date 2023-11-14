@@ -260,7 +260,6 @@ document.querySelector(".finalize-order").addEventListener("click", () => {
 /*  for (let i = 0; i < finalOrders.length; i++) {
     var allorderitem = finalOrders[i].innerText;
     var splitItem = allorderitem.split(/\n\n/);
-
     //an issue with splititems
   //  test[i] = {description: "somefood" , price: 'p', quantity: 'quant'};
     finalOr[i] = {description: `${splitItem[0]}`, price: `${splitItem[1]}`, quantity: `${splitItem[2]}`};
@@ -269,7 +268,7 @@ document.querySelector(".finalize-order").addEventListener("click", () => {
   //  orderPlaced[i].pop();
  //   var finalOrder = Object.assign({}, orderPlaced);
   }*/
- //console.log(finalOr)
+ console.log(finalOrders.length)
 //  console.log(typeof splititem[1])
  // console.log(typeof splititem[2])
  // console.log(finalOr[0].description)
@@ -333,8 +332,8 @@ document.querySelector(".finalize-order").addEventListener("click", () => {
   if(document.querySelector(".delivery-fee") === null && name !== null && number !== null){
     document.querySelector('.order-placed').style = 'display:block';
     document.querySelector('.deliveryfeeinfo').style = 'display:none';
-    document.querySelector('.deliveryinfo').style = 'display:none;';  
-  for(let i = 0; i < finalOrders; i++){
+    document.querySelector('.deliveryinfo').style = 'display:none;'; 
+  for(let i = 0; i < finalOrders.length; i++){
     var allorderitem = finalOrders[i].innerText;
     var splitItem = allorderitem.split(/\n\n/);
     let item = document.createElement('div');
