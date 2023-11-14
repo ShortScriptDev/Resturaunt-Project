@@ -257,9 +257,10 @@ document.querySelector(".finalize-order").addEventListener("click", () => {
   let address = document.querySelector(".addressadded");
   var fOrder = document.querySelector(".placeorder-items");
   var finalOrders = fOrder.querySelectorAll(".order-list");
-  for (let i = 0; i < finalOrders.length; i++) {
+/*  for (let i = 0; i < finalOrders.length; i++) {
     var allorderitem = finalOrders[i].innerText;
     var splitItem = allorderitem.split(/\n\n/);
+
     //an issue with splititems
   //  test[i] = {description: "somefood" , price: 'p', quantity: 'quant'};
     finalOr[i] = {description: `${splitItem[0]}`, price: `${splitItem[1]}`, quantity: `${splitItem[2]}`};
@@ -267,8 +268,8 @@ document.querySelector(".finalize-order").addEventListener("click", () => {
    // orderPlaced.push(arr);
   //  orderPlaced[i].pop();
  //   var finalOrder = Object.assign({}, orderPlaced);
-  }
- // console.log(finalOr)
+  }*/
+ //console.log(finalOr)
 //  console.log(typeof splititem[1])
  // console.log(typeof splititem[2])
  // console.log(finalOr[0].description)
@@ -334,11 +335,12 @@ document.querySelector(".finalize-order").addEventListener("click", () => {
     document.querySelector('.deliveryfeeinfo').style = 'display:none';
     document.querySelector('.deliveryinfo').style = 'display:none;';  
   for(let i = 0; i < finalOrders; i++){
-
+    var allorderitem = finalOrders[i].innerText;
+    var splitItem = allorderitem.split(/\n\n/);
     let item = document.createElement('div');
     item.classList.add('orders');
     let parentEl = document.querySelector('.finalorder-items');
-    item.innerHTML = `<p>${finalOr[i].description}</p><p>${finalOr[i].quantity}</p><p>$${finalOr[i].price}</p>`;
+    item.innerHTML = `<p>${splitItem[0]}</p><p>${splitItem[2]}</p><p>$${splitItem[1]}</p>`;
     parentEl.append(item);
   }
   let currentDate = new Date().toJSON().slice(0, 10);
