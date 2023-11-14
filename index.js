@@ -258,24 +258,25 @@ document.querySelector(".finalize-order").addEventListener("click", () => {
   var fOrder = document.querySelector(".placeorder-items");
   var finalOrders = fOrder.querySelectorAll(".order-list");
   for (let i = 0; i < finalOrders.length; i++) {
-    let allorderitem = finalOrders[i].innerText;
-    let splitItem = allorderitem.split(/\n\n/);
+    var allorderitem = finalOrders[i].innerText;
+    var splitItem = allorderitem.split(/\n\n/);
     //an issue with splititems
-    //test[i] = {description: "somefood" , price: 'p', quantity: 'quant'};
-    finalOr[i] = {description: splitItem[0] , price: splitItem[1], quantity: splitItem[2]};
+  //  test[i] = {description: "somefood" , price: 'p', quantity: 'quant'};
+    finalOr[i] = {description: `${splitItem[0]}`, price: `${splitItem[1]}`, quantity: `${splitItem[2]}`};
     numOfOrders += 1;
    // orderPlaced.push(arr);
   //  orderPlaced[i].pop();
  //   var finalOrder = Object.assign({}, orderPlaced);
   }
-/*  console.log(typeof splititem[0])
-  console.log(typeof splititem[1])
-  console.log(typeof splititem[2])
-  console.log(typeof finalOr[0].description)
-  console.log(typeof finalOr[0].price)
-  console.log(typeof finalOr[0].quantity)
-  console.log(finalOr[0]);
-  console.log(test[0])*/
+ // console.log(finalOr)
+//  console.log(typeof splititem[1])
+ // console.log(typeof splititem[2])
+ // console.log(finalOr[0].description)
+//  console.log(test[0].description)
+//  console.log(typeof finalOr[0].price)
+//  console.log(typeof finalOr[0].quantity)
+//  console.log(finalOr[0]);
+//  console.log(test[0])
 //  console.log(finalOr.i.descr)
   //finalOrder.orders.push(orderPlaced)
   //console.log(Object.assign({}, orderPlaced))
@@ -332,7 +333,8 @@ document.querySelector(".finalize-order").addEventListener("click", () => {
     document.querySelector('.order-placed').style = 'display:block';
     document.querySelector('.deliveryfeeinfo').style = 'display:none';
     document.querySelector('.deliveryinfo').style = 'display:none;';  
-  for(let i = 0; i < numOfOrders; i++){
+  for(let i = 0; i < finalOrders; i++){
+
     let item = document.createElement('div');
     item.classList.add('orders');
     let parentEl = document.querySelector('.finalorder-items');
